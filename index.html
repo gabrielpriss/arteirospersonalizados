@@ -1,0 +1,2626 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arteiros Personalizados | Ecobags e Sacolas</title>
+    <meta name="description" content="Ecobags, sacochilas, nécessaires e saquinhos personalizados para empresas e eventos. Orçamento grátis em Curitiba e região.">
+    <meta name="theme-color" content="#081F33">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Arteiros Personalizados | Ecobags e Sacolas">
+    <meta property="og:description" content="Linha completa de ecobags personalizadas para empresas e eventos. Solicite seu orçamento grátis.">
+    <meta property="og:locale" content="pt_BR">
+    <link rel="icon" href="/assets/logo.webp" type="image/png">
+    <link rel="apple-touch-icon" href="/assets/logo.webp">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,600&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* =========================================
+           1. VARIÁVEIS E RESET (Design System)
+           ========================================= */
+        :root {
+            --verde-principal: #0D3151;
+            --verde-escuro: #081F33;
+            --verde-hover: #164A72;
+            --verde-claro: #7BA7C7;
+            --verde-pale: #E8F0F6;
+            --branco: #FFFFFF;
+            --cinza-claro: #F5F5F5;
+            --texto-escuro: #1A1A1A;
+            --texto-corpo: #4A4A4A;
+
+            --font-titulo: 'Fraunces', Georgia, serif;
+            --font-corpo: 'Source Sans 3', system-ui, sans-serif;
+            
+            --amarelo-cta: #FFB300;
+            --amarelo-hover: #FFA000;
+
+            --header-height: 120px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-corpo);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: var(--header-height);
+        }
+
+        html, body {
+            overflow-x: hidden; 
+            max-width: 100%;
+        }
+
+        body {
+            color: var(--texto-corpo);
+            background-color: var(--branco);
+            line-height: 1.7; 
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased; 
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-titulo);
+            color: var(--verde-principal); 
+            font-weight: 700;
+            line-height: 1.2;
+            letter-spacing: -0.02em; 
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* =========================================
+           2. COMPONENTES (Botões e Badges)
+           ========================================= */
+        @keyframes AnimationName {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 14px 32px;
+            border-radius: 4px;
+            font-family: var(--font-corpo);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            color: var(--verde-escuro);
+            background: linear-gradient(90deg, rgba(249, 237, 49, 1) 0%, rgba(252, 178, 68, 1) 17%, rgba(246, 134, 53, 1) 35%, rgba(228, 60, 146, 1) 57%, rgba(142, 83, 161, 1) 81%, rgba(59, 99, 174, 1) 100%);
+            background-size: 300% 300%;
+            -webkit-animation: AnimationName 10s ease infinite;
+            -moz-animation: AnimationName 10s ease infinite;
+            animation: AnimationName 10s ease infinite;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(13, 49, 81, 0.2);
+            color: var(--verde-escuro);
+        }
+
+        .btn-block {
+            width: 100%;
+            display: block;
+        }
+
+        .badge {
+            background-color: var(--verde-pale);
+            color: var(--verde-escuro);
+            padding: 6px 14px;
+            border-radius: 999px;
+            font-family: var(--font-corpo);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            display: inline-block;
+        }
+
+        /* =========================================
+           3. ESTRUTURA DE LAYOUT
+           ========================================= */
+        
+        /* Topbar */
+        .topbar {
+            background: linear-gradient(90deg, var(--verde-escuro) 0%, var(--verde-principal) 50%, var(--verde-escuro) 100%);
+            border-bottom: 2px solid var(--amarelo-cta);
+            color: var(--branco);
+            text-align: center;
+            padding: 12px 20px;
+        }
+        .topbar-text {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 0;
+            font-family: var(--font-corpo);
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            line-height: 1.4;
+        }
+        .topbar-text i {
+            color: var(--amarelo-cta);
+            font-size: 15px;
+        }
+        .topbar-text strong {
+            color: var(--amarelo-cta);
+            font-weight: 700;
+        }
+        .topbar-destaque {
+            color: var(--verde-escuro);
+            background: var(--amarelo-cta);
+            font-weight: 700;
+            padding: 3px 10px;
+            border-radius: 4px;
+            letter-spacing: 0.06em;
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            z-index: 1000;
+            padding: 24px 0;
+            background: transparent;
+            color: var(--branco);
+            margin-bottom: calc(-1 * var(--header-height));
+            transition: background-color 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
+        }
+        header.scrolled {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            width: 100%;
+            margin-bottom: 0;
+            background: rgba(8, 31, 51, 0.97);
+            box-shadow: 0 4px 24px rgba(8, 31, 51, 0.2);
+            backdrop-filter: blur(10px);
+        }
+        .header-spacer {
+            height: 0;
+            pointer-events: none;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            flex-shrink: 0;
+        }
+        .logo img {
+            height: 72px;
+            width: auto;
+        }
+        .nav-desktop ul {
+            display: flex;
+            list-style: none;
+            gap: 32px;
+        }
+        .nav-desktop ul li a {
+            font-size: 13px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            transition: color 0.3s;
+            color: var(--branco);
+        }
+        .nav-desktop ul li a:hover {
+            color: var(--verde-claro);
+        }
+        .btn-header-cta {
+            flex-shrink: 0;
+            white-space: nowrap;
+        }
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--branco);
+            font-size: 26px;
+            cursor: pointer;
+            padding: 8px;
+            line-height: 1;
+        }
+        .menu-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 31, 51, 0.65);
+            z-index: 1100;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .menu-lateral {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: min(320px, 88vw);
+            height: 100%;
+            background: var(--verde-escuro);
+            z-index: 1200;
+            transform: translateX(100%);
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            gap: 28px;
+            overflow-y: auto;
+            box-shadow: -8px 0 30px rgba(0, 0, 0, 0.2);
+        }
+        .menu-lateral.active {
+            transform: translateX(0);
+        }
+        .menu-lateral-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .menu-lateral-header span {
+            font-family: var(--font-titulo);
+            font-size: 20px;
+            color: var(--branco);
+        }
+        .menu-close {
+            background: none;
+            border: none;
+            color: var(--branco);
+            font-size: 24px;
+            cursor: pointer;
+            padding: 4px;
+            line-height: 1;
+        }
+        .menu-lateral nav ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .menu-lateral nav ul li a {
+            display: block;
+            padding: 14px 12px;
+            font-size: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            color: var(--branco);
+            border-radius: 6px;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+        .menu-lateral nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--verde-claro);
+        }
+        .menu-lateral .btn {
+            margin-top: auto;
+        }
+        body.menu-open,
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(13, 49, 81, 0.88), rgba(13, 49, 81, 0.78)), url('/assets/hero-ecobags.webp') center/cover;
+            padding: calc(100px + var(--header-height)) 0 120px;
+            color: var(--branco);
+            text-align: center;
+        }
+        .hero .container {
+            max-width: 820px;
+        }
+        .hero h1 {
+            font-size: clamp(32px, 5vw, 48px);
+            color: var(--branco);
+            margin-bottom: 24px;
+            line-height: 1.15;
+        }
+        .hero p {
+            font-family: var(--font-corpo);
+            font-size: clamp(16px, 2.5vw, 18px);
+            margin-bottom: 40px;
+            opacity: 0.95;
+            font-weight: 400;
+            max-width: 640px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Produtos */
+        .produtos {
+            padding: 100px 0;
+            text-align: center;
+            background-color: var(--branco);
+        }
+        .titulo-produtos {
+            margin-bottom: 64px;
+            font-size: 38px;
+            position: relative;
+            display: inline-block;
+        }
+        .titulo-produtos::after {
+            content: '';
+            position: absolute;
+            bottom: -16px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 3px;
+            background-color: var(--amarelo-cta);
+            border-radius: 2px;
+        }
+        .grid-produtos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 32px;
+        }
+        .card-produto-criativo {
+            background: var(--branco);
+            border-radius: 12px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border: 1px solid rgba(13, 49, 81, 0.06);
+            position: relative;
+        }
+        .card-produto-criativo .container-imagem {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 1/1;
+            overflow: hidden;
+            background-color: var(--cinza-claro);
+        }
+        .card-produto-criativo .container-imagem img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            margin-bottom: 0;
+            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .badge-criativo {
+            position: absolute;
+            top: 16px;
+            left: 16px;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-family: var(--font-corpo);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+        .badge-sustentavel { background-color: #E8F5E9; color: #2E7D32; }
+        .badge-pratico { background-color: #E3F2FD; color: #1565C0; }
+        .badge-exclusivo { background-color: #F3E5F5; color: #6A1B9A; }
+        .badge-versatil { background-color: #FFF8E1; color: #F57F17; }
+        .conteudo-card {
+            padding: 28px 24px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+            text-align: left;
+        }
+        .card-produto-criativo h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: var(--verde-principal);
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s;
+        }
+        .card-produto-criativo p {
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--texto-corpo);
+            margin-bottom: 28px;
+            min-height: 72px;
+        }
+        .btn-card {
+            width: 100%;
+            margin-top: auto;
+            padding: 14px;
+            font-size: 13px;
+            background: transparent;
+            color: var(--verde-principal);
+            border: 2px solid var(--verde-principal);
+            font-weight: 700;
+            border-radius: 6px;
+            animation: none;
+            -webkit-animation: none;
+            -moz-animation: none;
+        }
+        .btn-card:hover {
+            transform: none;
+            box-shadow: none;
+        }
+        .card-produto-criativo:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 38px rgba(13, 49, 81, 0.12);
+            border-color: rgba(13, 49, 81, 0.15);
+        }
+        .card-produto-criativo:hover .container-imagem img {
+            transform: scale(1.06);
+        }
+        .card-produto-criativo:hover .btn-card {
+            background: var(--verde-principal);
+            color: var(--branco);
+            box-shadow: 0 8px 20px rgba(13, 49, 81, 0.2);
+        }
+
+        /* Materiais */
+        .materiais-premium {
+            padding: 120px 0;
+            background-color: var(--cinza-claro);
+            overflow: hidden;
+        }
+        .container-materiais {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 64px;
+            align-items: center;
+        }
+        .materiais-conteudo {
+            text-align: left;
+        }
+        .badge-tag {
+            color: var(--verde-claro);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 16px;
+        }
+        .materiais-conteudo h2 {
+            font-size: 42px;
+            margin-bottom: 24px;
+            color: var(--verde-principal);
+            line-height: 1.15;
+        }
+        .materiais-conteudo p {
+            font-size: 16px;
+            color: var(--texto-corpo);
+            margin-bottom: 32px;
+            max-width: 540px;
+        }
+        .materiais-beneficios {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 40px;
+        }
+        .beneficio-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            color: var(--verde-escuro);
+            font-weight: 500;
+            font-size: 15px;
+        }
+        .beneficio-item i {
+            color: var(--verde-claro);
+            font-size: 18px;
+        }
+        .btn-materiais {
+            padding: 16px 40px;
+            box-shadow: 0 4px 14px rgba(255, 179, 0, 0.3);
+        }
+        .materiais-wrapper-imagem {
+            position: relative;
+            width: 100%;
+        }
+        .moldura-imagem {
+            position: relative;
+            background: var(--branco);
+            padding: 16px;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(13, 49, 81, 0.06);
+            transition: transform 0.4s ease;
+        }
+        .moldura-imagem:hover {
+            transform: scale(1.02);
+        }
+        .img-materiais {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+            object-fit: cover;
+        }
+        .badge-flutuante-cores {
+            position: absolute;
+            bottom: -20px;
+            left: 32px;
+            background-color: var(--verde-principal);
+            color: var(--branco);
+            padding: 14px 24px;
+            border-radius: 50px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 25px rgba(13, 49, 81, 0.25);
+            font-family: var(--font-corpo);
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.02em;
+            animation: floatAnimation 3s ease-in-out infinite;
+        }
+        .badge-flutuante-cores i {
+            color: var(--amarelo-cta);
+            font-size: 16px;
+        }
+        @keyframes floatAnimation {
+            0% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+            100% { transform: translateY(0); }
+        }
+
+        /* Depoimentos */
+        .depoimentos-premium {
+            padding: 100px 0;
+            background-color: var(--branco);
+            text-align: center;
+        }
+        .depoimentos-premium h2 {
+            font-size: 38px;
+            margin-bottom: 64px;
+            color: var(--verde-principal);
+        }
+        .layout-depoimentos {
+            display: grid;
+            grid-template-columns: 0.8fr 2.2fr;
+            gap: 40px;
+            align-items: start;
+        }
+        .google-rating-box {
+            background-color: var(--cinza-claro);
+            padding: 40px 32px;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid var(--verde-pale);
+        }
+        .google-logo-premium {
+            height: 32px;
+            width: auto;
+            margin-bottom: 16px;
+        }
+        .nota-numero {
+            font-family: var(--font-titulo);
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--texto-escuro);
+            letter-spacing: 0.05em;
+            margin-bottom: 8px;
+        }
+        .google-stars-box {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+        .google-stars-box img {
+            width: 22px;
+            height: 22px;
+        }
+        .txt-com-base {
+            font-size: 14px;
+            color: var(--texto-corpo);
+            margin-bottom: 24px;
+        }
+        .btn-ver-todas {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--verde-principal);
+            border-bottom: 2px solid var(--verde-claro);
+            padding-bottom: 2px;
+            transition: all 0.3s;
+        }
+        .btn-ver-todas:hover {
+            color: var(--verde-hover);
+            border-bottom-color: var(--verde-principal);
+        }
+        
+        .carrossel-depoimentos {
+            position: relative;
+            width: 100%;
+            padding: 0 28px;
+            min-width: 0; 
+            max-width: 100%; 
+        }
+        
+        .carrossel-viewport {
+            overflow: hidden;
+            border-radius: 12px;
+            width: 100%;
+        }
+        .carrossel-track {
+            display: flex;
+            gap: 24px;
+            transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+            will-change: transform;
+        }
+        .carrossel-track .card-review {
+            flex: none;
+        }
+        .carrossel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 20px;
+        }
+        .carrossel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(13, 49, 81, 0.2);
+            border: none;
+            cursor: pointer;
+            padding: 0;
+            transition: all 0.3s ease;
+        }
+        .carrossel-dot.active {
+            background: var(--verde-principal);
+            width: 24px;
+            border-radius: 4px;
+        }
+        .carrossel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            box-shadow: 0 4px 16px rgba(13, 49, 81, 0.15);
+            transition: opacity 0.2s ease, transform 0.2s ease;
+        }
+        .carrossel-btn:hover:not(:disabled) {
+            transform: translateY(-50%) scale(1.06);
+        }
+        .carrossel-btn:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+        .carrossel-prev {
+            left: 0;
+            background: var(--branco);
+            color: var(--texto-corpo);
+            border: 1px solid rgba(13, 49, 81, 0.1);
+        }
+        .carrossel-next {
+            right: 0;
+            background: var(--verde-principal);
+            color: var(--branco);
+        }
+        .card-review {
+            background: var(--cinza-claro);
+            padding: 28px;
+            border-radius: 12px;
+            border: 1px solid rgba(13, 49, 81, 0.06);
+            text-align: left;
+            box-shadow: 0 2px 12px rgba(13, 49, 81, 0.04);
+        }
+        .topo-review {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+        .avatar-falso {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-family: var(--font-corpo);
+            font-size: 16px;
+        }
+        .user-info h4 {
+            font-family: var(--font-corpo);
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--texto-escuro);
+            line-height: 1.2;
+        }
+        .user-info span {
+            font-size: 13px;
+            color: #888;
+        }
+        .review-mini-logo {
+            height: 18px;
+            width: auto;
+            opacity: 0.8;
+        }
+        .estrelas-card {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .estrelas-card .estrelas-row {
+            display: flex;
+            gap: 3px;
+            align-items: center;
+        }
+        .estrelas-card .estrelas-row img {
+            width: 16px;
+            height: 16px;
+        }
+        .badge-verificado {
+            width: 16px;
+            height: 16px;
+        }
+        .texto-review {
+            font-size: 14.5px;
+            line-height: 1.6;
+            color: var(--texto-corpo);
+            font-style: italic;
+        }
+
+        /* Logo Wall */
+        .clientes {
+            padding: 50px 0;
+            background-color: var(--branco);
+            border-top: 1px solid var(--verde-pale);
+            border-bottom: 1px solid var(--verde-pale);
+        }
+        .clientes h3 {
+            text-align: center; 
+            margin-bottom: 40px; 
+            font-size: 13px; 
+            color: #888;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-family: var(--font-corpo);
+        }
+        .clientes-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: center;
+        }
+        .clientes-grid img {
+            height: 56px;
+            width: auto;
+            max-width: 140px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.5;
+            transition: all 0.4s ease;
+        }
+        .clientes-grid img:hover {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        /* Sobre */
+        .sobre-premium {
+            padding: 120px 0;
+            background-color: var(--branco);
+            overflow: hidden;
+        }
+        .container-sobre {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .sobre-conteudo {
+            text-align: left;
+        }
+        .sub-marca {
+            color: var(--verde-claro);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .sobre-conteudo h2 {
+            font-size: 42px;
+            line-height: 1.15;
+            margin-bottom: 32px;
+            color: var(--texto-escuro);
+        }
+        .sobre-conteudo h2 .nome-marca {
+            color: var(--verde-principal);
+        }
+        .paragrafo-destaque {
+            font-size: 18px;
+            line-height: 1.65;
+            color: var(--verde-escuro);
+            font-weight: 500;
+            margin-bottom: 20px;
+        }
+        .sobre-conteudo p {
+            font-size: 16px;
+            color: var(--texto-corpo);
+            margin-bottom: 24px;
+        }
+        .bloco-frase-efeito {
+            border-left: 3px solid var(--amarelo-cta);
+            padding-left: 24px;
+            margin: 36px 0;
+        }
+        .bloco-frase-efeito p {
+            font-family: var(--font-titulo);
+            font-style: italic;
+            font-size: 20px;
+            line-height: 1.4;
+            color: var(--verde-principal);
+            margin-bottom: 0;
+        }
+        .btn-sobre {
+            box-shadow: 0 4px 14px rgba(255, 179, 0, 0.2);
+        }
+        .sobre-imagem-wrapper {
+            position: relative;
+        }
+        .moldura-sobre {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .moldura-sobre::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--verde-pale);
+            border-radius: 12px;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+        .moldura-sobre img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 15px 35px rgba(13, 49, 81, 0.08);
+            transition: transform 0.4s ease;
+        }
+        .selo-eco-flutuante {
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            background: var(--branco);
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.06);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 3;
+            border: 1px solid var(--verde-pale);
+        }
+        .selo-eco-flutuante i {
+            color: #2E7D32;
+            font-size: 16px;
+        }
+        .selo-eco-flutuante span {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--texto-escuro);
+        }
+        .sobre-imagem-wrapper:hover .moldura-sobre img {
+            transform: translate(-8px, -8px);
+        }
+        .sobre-imagem-wrapper:hover .moldura-sobre::before {
+            transform: translate(8px, 8px);
+            border-color: var(--verde-claro);
+        }
+        
+        .producao-premium {
+            padding: 120px 0;
+            background-color: var(--verde-pale);
+            overflow: hidden;
+        }
+        .container-producao {
+            display: grid;
+            grid-template-columns: 0.9fr 1.1fr;
+            gap: 80px;
+            align-items: center;
+        }
+        .producao-imagem-wrapper {
+            position: relative;
+        }
+        .moldura-producao {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+        .moldura-producao::before {
+            content: '';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 100%;
+            height: 100%;
+            border: 2px solid var(--verde-claro);
+            border-radius: 12px;
+            z-index: 1;
+            transition: all 0.4s ease;
+        }
+        .moldura-producao img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 12px;
+            position: relative;
+            z-index: 2;
+            box-shadow: 0 15px 35px rgba(13, 49, 81, 0.1);
+            transition: transform 0.4s ease;
+        }
+        .badge-local-flutuante {
+            position: absolute;
+            bottom: -20px;
+            left: -20px;
+            background: var(--branco);
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px rgba(13, 49, 81, 0.08);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            z-index: 3;
+            border: 1px solid var(--verde-pale);
+        }
+        .badge-local-flutuante i {
+            color: var(--verde-principal);
+            font-size: 16px;
+        }
+        .badge-local-flutuante span {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--texto-escuro);
+        }
+        .producao-imagem-wrapper:hover .moldura-producao img {
+            transform: translate(8px, 8px);
+        }
+        .producao-imagem-wrapper:hover .moldura-producao::before {
+            transform: translate(-8px, -8px);
+            border-color: var(--verde-principal);
+        }
+        .producao-conteudo {
+            text-align: left;
+        }
+        .sub-producao {
+            color: var(--verde-principal);
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            display: block;
+            margin-bottom: 12px;
+            opacity: 0.8;
+        }
+        .producao-conteudo h2 {
+            font-size: 38px;
+            line-height: 1.2;
+            margin-bottom: 24px;
+            color: var(--verde-principal);
+        }
+        .producao-conteudo p {
+            font-size: 16px;
+            color: var(--texto-corpo);
+            margin-bottom: 24px;
+        }
+        .lista-caracteristicas {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-bottom: 32px;
+        }
+        .caracteristica-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            font-size: 15px;
+            color: var(--verde-escuro);
+        }
+        .caracteristica-item i {
+            color: var(--amarelo-cta);
+            font-size: 14px;
+        }
+        .chamada-acao-box {
+            background-color: rgba(255, 255, 255, 0.6);
+            border-left: 4px solid var(--verde-principal);
+            padding: 16px 20px;
+            border-radius: 0 8px 8px 0;
+            margin-bottom: 36px;
+        }
+        .chamada-acao-box p {
+            font-size: 15px;
+            color: var(--verde-escuro);
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 0;
+        }
+        .btn-producao {
+            box-shadow: 0 4px 14px rgba(13, 49, 81, 0.15);
+        }
+
+        /* Form + Mapa (CTA Final) - CORREÇÕES DE RENDERIZAÇÃO E FLEXBOX */
+        .contato-final-premium {
+            padding: 100px 0;
+            background-color: var(--branco);
+        }
+        .container-contato {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            background: var(--verde-principal); /* Garante que o fundo não será branco na junção */
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 15px 45px rgba(13, 49, 81, 0.08);
+        }
+        .mapa-wrapper {
+            width: 50%;
+            position: relative;
+            min-height: 500px;
+            background: transparent;
+        }
+        .mapa-wrapper iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            display: block;
+            pointer-events: auto;
+        }
+        .form-wrapper-premium {
+            width: 50%;
+            background-color: var(--verde-principal);
+            padding: 64px;
+            color: var(--branco);
+            text-align: left;
+        }
+        .form-wrapper-premium h3 {
+            color: var(--branco);
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        .form-subtitle {
+            font-size: 14.5px;
+            color: var(--verde-claro);
+            margin-bottom: 32px;
+            opacity: 0.9;
+        }
+        .form-group-premium {
+            margin-bottom: 24px;
+        }
+        .form-group-premium label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: 0.02em;
+        }
+        .form-group-premium label i {
+            color: var(--verde-claro);
+            font-size: 15px;
+        }
+        .input-premium {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.04);
+            color: var(--branco);
+            border-radius: 6px;
+            outline: none;
+            font-family: var(--font-corpo);
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        .input-premium::placeholder {
+            color: rgba(255, 255, 255, 0.4);
+        }
+        .input-premium:focus {
+            border-color: var(--amarelo-cta);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 0 0 4px rgba(255, 179, 0, 0.15);
+        }
+        .label-seletor {
+            color: var(--amarelo-cta) !important;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 12px !important;
+        }
+        .seletor-tags-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 8px;
+        }
+        .tag-label {
+            cursor: pointer;
+        }
+        .tag-label input {
+            display: none;
+        }
+        .tag-label span {
+            display: inline-block;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.85);
+            transition: all 0.25s ease;
+            user-select: none;
+        }
+        .tag-label:hover span {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--branco);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+        .tag-label input:checked + span {
+            background-color: var(--amarelo-cta);
+            border-color: var(--amarelo-cta);
+            color: var(--verde-escuro);
+            font-weight: 600;
+            box-shadow: 0 4px 12px rgba(255, 179, 0, 0.2);
+        }
+        .btn-submit-premium {
+            width: 100%;
+            padding: 16px;
+            font-size: 15px;
+            margin-top: 12px;
+            box-shadow: 0 4px 15px rgba(255, 179, 0, 0.2);
+        }
+
+        /* Modal de Orçamento */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(8, 31, 51, 0.72);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.35s ease, visibility 0.35s ease;
+            padding: 24px 20px;
+            backdrop-filter: blur(6px);
+        }
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal-box {
+            width: 100%;
+            max-width: 520px;
+            max-height: calc(100vh - 48px);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 24px 60px rgba(8, 31, 51, 0.35);
+            transform: translateY(24px) scale(0.97);
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .modal-overlay.active .modal-box {
+            transform: translateY(0) scale(1);
+        }
+        .modal-close {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            border-radius: 50%;
+            color: var(--branco);
+            font-size: 16px;
+            cursor: pointer;
+            z-index: 10;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+        .modal-header {
+            background: linear-gradient(135deg, var(--verde-escuro) 0%, var(--verde-principal) 100%);
+            padding: 28px 32px 24px;
+            border-bottom: 2px solid var(--amarelo-cta);
+            flex-shrink: 0;
+        }
+        .modal-header-top {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 16px;
+        }
+        .modal-header-top img {
+            height: 52px;
+            width: auto;
+            flex-shrink: 0;
+        }
+        .modal-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 179, 0, 0.15);
+            color: var(--amarelo-cta);
+            padding: 5px 12px;
+            border-radius: 999px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+        .modal-badge i {
+            font-size: 10px;
+        }
+        .modal-header h3 {
+            color: var(--branco);
+            font-size: 26px;
+            margin: 0 0 6px;
+            line-height: 1.2;
+        }
+        .modal-header p {
+            color: var(--verde-claro);
+            font-size: 14px;
+            margin: 0;
+            opacity: 0.9;
+        }
+        .modal-body {
+            background: var(--verde-principal);
+            padding: 28px 32px 32px;
+            color: var(--branco);
+            overflow-y: auto;
+            flex: 1;
+        }
+        .modal-notice {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255, 179, 0, 0.12);
+            border: 1px solid rgba(255, 179, 0, 0.3);
+            border-radius: 8px;
+            padding: 12px 16px;
+            margin-bottom: 24px;
+            font-size: 13px;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.4;
+        }
+        .modal-notice i {
+            color: var(--amarelo-cta);
+            font-size: 16px;
+            flex-shrink: 0;
+        }
+        .modal-notice strong {
+            color: var(--amarelo-cta);
+            font-weight: 700;
+        }
+        .modal-body .form-group-premium {
+            margin-bottom: 20px;
+        }
+        .modal-body .btn-submit-premium {
+            margin-top: 8px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--verde-escuro);
+            color: #fff;
+            padding: 80px 0 24px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-bottom: 60px;
+        }
+        .footer-logo {
+            margin-bottom: 20px;
+            display: block;
+        }
+        .footer-logo img {
+            height: 64px;
+            width: auto;
+        }
+        footer p {
+            font-size: 15px;
+            opacity: 0.8;
+        }
+        footer h4 {
+            color: var(--branco);
+            margin-bottom: 24px;
+            font-size: 18px;
+            letter-spacing: 0.02em;
+        }
+        footer ul {
+            list-style: none;
+        }
+        footer ul li {
+            margin-bottom: 12px;
+        }
+        footer ul li a {
+            color: rgba(255,255,255,0.7);
+            font-size: 15px;
+            line-height: 1.5;
+            transition: color 0.3s;
+        }
+        footer ul li a:hover {
+            color: var(--verde-claro);
+        }
+        .copyright {
+            text-align: center;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 13px;
+            letter-spacing: 0.02em;
+        }
+
+        /* WhatsApp Fixo */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+            z-index: 1000;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.08);
+            background-color: #20BA56;
+            color: white;
+        }
+
+        /* Responsividade */
+        @media (max-width: 992px) {
+            .nav-desktop,
+            .btn-header-cta {
+                display: none;
+            }
+            .menu-toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            .logo img {
+                height: 60px;
+            }
+            .container-materiais {
+                grid-template-columns: 1fr;
+                gap: 56px;
+            }
+            .materiais-conteudo {
+                text-align: center;
+            }
+            .materiais-conteudo p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .materiais-beneficios {
+                align-items: center;
+            }
+            .materiais-wrapper-imagem {
+                max-width: 600px;
+                margin: 0 auto;
+            }
+            .badge-flutuante-cores {
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: -15px;
+                animation: none;
+            }
+            .layout-depoimentos {
+                grid-template-columns: 1fr;
+            }
+            .google-rating-box {
+                max-width: 400px;
+                margin: 0 auto;
+                width: 100%;
+            }
+            .container-sobre {
+                grid-template-columns: 1fr;
+                gap: 64px;
+            }
+            .sobre-conteudo {
+                text-align: center;
+            }
+            .bloco-frase-efeito {
+                border-left: none;
+                border-top: 2px solid var(--amarelo-cta);
+                border-bottom: 2px solid var(--amarelo-cta);
+                padding: 20px 0;
+                margin: 32px 0;
+            }
+            .bloco-frase-efeito p {
+                font-size: 18px;
+            }
+            .sobre-imagem-wrapper {
+                max-width: 500px;
+                margin: 0 auto;
+                width: 100%;
+            }
+            .selo-eco-flutuante {
+                right: 0;
+            }
+            .container-producao {
+                grid-template-columns: 1fr;
+                gap: 64px;
+            }
+            .producao-imagem-wrapper {
+                order: -1;
+                max-width: 500px;
+                margin: 0 auto;
+                width: 100%;
+            }
+            .producao-conteudo {
+                text-align: center;
+            }
+            .lista-caracteristicas {
+                align-items: center;
+            }
+            .chamada-acao-box {
+                border-left: none;
+                border-top: 3px solid var(--verde-principal);
+                border-radius: 8px;
+            }
+            .badge-local-flutuante {
+                left: 0;
+            }
+            .mapa-wrapper {
+                width: 100%;
+                min-height: 350px;
+                order: 1; /* Mapa vai para baixo no mobile */
+            }
+            .form-wrapper-premium {
+                width: 100%;
+                order: 0;
+                padding: 48px 32px;
+            }
+        }
+        @media (max-width: 768px) {
+            .titulo-produtos, .materiais-conteudo h2, .sobre-conteudo h2, .producao-conteudo h2, .depoimentos-premium h2 { font-size: 28px; }
+            .container-sobre, .container-producao {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .hero {
+                padding: 72px 0 88px;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .clientes h3 {
+                margin-bottom: 24px;
+            }
+            .grid-produtos {
+                grid-template-columns: 1fr;
+            }
+            .clientes-grid {
+                gap: 28px;
+            }
+            .clientes-grid img {
+                height: 44px;
+            }
+        }
+        @media (max-width: 680px) {
+            .depoimentos-premium h2 {
+                font-size: 30px;
+                margin-bottom: 40px;
+            }
+            .card-review {
+                padding: 24px;
+            }
+            .carrossel-track .card-review {
+                flex: 0 0 100%;
+                min-width: 100%;
+            }
+            .carrossel-depoimentos {
+                padding: 0 36px;
+            }
+        }
+        @media (max-width: 576px) {
+            .sobre-premium {
+                padding: 80px 0;
+            }
+            .sobre-conteudo h2 {
+                font-size: 32px;
+            }
+            .paragrafo-destaque {
+                font-size: 16px;
+            }
+            .producao-premium {
+                padding: 80px 0;
+            }
+            .producao-conteudo h2 {
+                font-size: 30px;
+            }
+            .materiais-premium {
+                padding: 80px 0;
+            }
+            .materiais-conteudo h2 {
+                font-size: 32px;
+            }
+            .badge-flutuante-cores {
+                width: 85%;
+                justify-content: center;
+                font-size: 13px;
+                padding: 12px 16px;
+            }
+            .form-wrapper-premium h3 {
+                font-size: 26px;
+            }
+            .seletor-tags-group {
+                gap: 8px;
+            }
+            .tag-label span {
+                padding: 6px 14px;
+                font-size: 13px;
+            }
+            .form-wrapper-premium {
+                padding: 40px 24px;
+            }
+        }
+        @media (max-width: 480px) {
+            .conteudo-card {
+                padding: 20px;
+                text-align: center;
+            }
+            .titulo-produtos {
+                font-size: 30px;
+            }
+            .logo img {
+                height: 52px;
+            }
+            :root {
+                --header-height: 84px;
+            }
+            header {
+                padding: 16px 0;
+            }
+            .btn {
+                padding: 12px 24px;
+                font-size: 13px;
+            }
+            .whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 54px;
+                height: 54px;
+                font-size: 28px;
+            }
+            .modal-header {
+                padding: 24px 20px 20px;
+            }
+            .modal-header h3 {
+                font-size: 22px;
+            }
+            .modal-body {
+                padding: 20px;
+            }
+            .modal-close {
+                top: 14px;
+                right: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="topbar">
+        <p class="topbar-text">
+            <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+            <strong>Atenção:</strong> Pedido mínimo de <span class="topbar-destaque">50 unidades</span>
+        </p>
+    </div>
+
+    <header>
+        <div class="container">
+            <a href="#inicio" class="logo">
+                <img src="/assets/logo.webp" alt="Arteiros Personalizados">
+            </a>
+            <nav class="nav-desktop" aria-label="Navegação principal">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.html#produtos">Ecobags</a></li>
+                    <li><a href="/camisetas/">Camisetas</a></li>
+                    <li><a href="#sobre">Quem somos</a></li>
+                </ul>
+            </nav>
+            <a href="#orcamento" class="btn btn-header-cta">Solicitar orçamento</a>
+            <button type="button" class="menu-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="menu-lateral">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </header>
+    <div class="header-spacer" id="header-spacer" aria-hidden="true"></div>
+
+    <div class="menu-overlay" id="menu-overlay" hidden></div>
+    <aside class="menu-lateral" id="menu-lateral" aria-hidden="true">
+        <div class="menu-lateral-header">
+            <span>Menu</span>
+            <button type="button" class="menu-close" aria-label="Fechar menu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <nav aria-label="Menu mobile">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html#produtos">Ecobags</a></li>
+                <li><a href="/camisetas/">Camisetas</a></li>
+                <li><a href="#sobre">Quem somos</a></li>
+                <li><a href="#materiais">Cores & Tecidos</a></li>
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#producao">Produção</a></li>
+            </ul>
+        </nav>
+        <a href="#orcamento" class="btn btn-block">Solicitar orçamento</a>
+    </aside>
+
+    <section class="hero" id="inicio">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Linha Completa de Ecobags Personalizadas Para Empresas e Eventos</h1>
+                <p>Sacolas Ecológicas, Saquinhos, Sacochilas e Nécessaires Personalizadas do seu jeito! Conte com a melhor qualidade, personalização exclusiva e o preço mais competitivo de Curitiba e região para marcar presença em todos os momentos.</p>
+                <a href="#orcamento" class="btn">Solicitar orçamento</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="produtos" id="produtos">
+        <div class="container">
+            <h2 class="titulo-produtos">Conheça nossa linha de produtos</h2>
+
+            <div class="grid-produtos">
+
+                <div class="card-produto-criativo">
+                    <div class="container-imagem">
+                        <img src="/assets/produto-ecobag.webp" alt="Ecobag">
+                        <div class="badge-criativo badge-sustentavel">SUSTENTÁVEL</div>
+                    </div>
+                    <div class="conteudo-card">
+                        <h3>Ecobag</h3>
+                        <p>Todos os produtos passam por um controle de qualidade rigoroso, proporcionando um acabamento final perfeito onde qualquer defeito é descartado.</p>
+                        <a href="#orcamento" class="btn btn-card">Solicitar orçamento</a>
+                    </div>
+                </div>
+
+                <div class="card-produto-criativo">
+                    <div class="container-imagem">
+                        <img src="/assets/produto-sacochila.webp" alt="Sacochila">
+                        <div class="badge-criativo badge-pratico">PRÁTICO</div>
+                    </div>
+                    <div class="conteudo-card">
+                        <h3>Sacochila</h3>
+                        <p>O processo de impressão é feito mantendo o padrão de qualidade e uniformidade, baixando os custos para os clientes e qualidade agregada.</p>
+                        <a href="#orcamento" class="btn btn-card">Solicitar orçamento</a>
+                    </div>
+                </div>
+
+                <div class="card-produto-criativo">
+                    <div class="container-imagem">
+                        <img src="/assets/produto-necessaire.webp" alt="Necessaire">
+                        <div class="badge-criativo badge-exclusivo">EXCLUSIVO</div>
+                    </div>
+                    <div class="conteudo-card">
+                        <h3>Necessaire</h3>
+                        <p>O processo de impressão é feito mantendo o padrão de qualidade e uniformidade, baixando os custos para os clientes e qualidade agregada.</p>
+                        <a href="#orcamento" class="btn btn-card">Solicitar orçamento</a>
+                    </div>
+                </div>
+
+                <div class="card-produto-criativo">
+                    <div class="container-imagem">
+                        <img src="/assets/produto-saquinhos.webp" alt="Saquinhos">
+                        <div class="badge-criativo badge-versatil">VERSÁTIL</div>
+                    </div>
+                    <div class="conteudo-card">
+                        <h3>Saquinhos</h3>
+                        <p>Todos os produtos passam por um controle de qualidade rigoroso, proporcionando um acabamento final perfeito onde qualquer defeito é descartado.</p>
+                        <a href="#orcamento" class="btn btn-card">Solicitar orçamento</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="materiais-premium" id="materiais">
+        <div class="container container-materiais">
+
+            <div class="materiais-conteudo">
+                <div class="badge-tag">Cores & Texturas</div>
+                <h2>Escolha entre diversas cores e tecidos</h2>
+                <p>Ecobags, sacochilas, nécessaires e saquinhos personalizados do jeitinho que você precisa! Trabalhamos com matéria-prima selecionada para garantir que a identidade da sua empresa seja estampada com máxima fidelidade e durabilidade.</p>
+
+                <div class="materiais-beneficios">
+                    <div class="beneficio-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Algodão Cru e Tecidos Coloridos</span>
+                    </div>
+                    <div class="beneficio-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Tintas de Alta Fixação (Silk Screen)</span>
+                    </div>
+                </div>
+
+                <a href="#orcamento" class="btn btn-materiais">Solicitar orçamento</a>
+            </div>
+
+            <div class="materiais-wrapper-imagem">
+                <div class="moldura-imagem">
+                    <img src="/assets/cores-tecidos.webp" alt="Cores de tecidos disponíveis" class="img-materiais">
+                    <div class="badge-flutuante-cores">
+                        <i class="fa-solid fa-palette"></i>
+                        <span>Atendemos todas as cores!</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="depoimentos-premium" id="depoimentos">
+        <div class="container">
+            <h2>O que nossos clientes dizem</h2>
+
+            <div class="layout-depoimentos">
+
+                <div class="google-rating-box">
+                    <img src="/assets/google-logo.svg" alt="Google Logo" class="google-logo-premium">
+                    <div class="nota-numero">EXCELENTE</div>
+                    <div class="google-stars-box">
+                        <img src="/assets/estrela.svg" alt="Estrela">
+                        <img src="/assets/estrela.svg" alt="Estrela">
+                        <img src="/assets/estrela.svg" alt="Estrela">
+                        <img src="/assets/estrela.svg" alt="Estrela">
+                        <img src="/assets/estrela.svg" alt="Estrela">
+                    </div>
+                    <p class="txt-com-base">Com base em avaliações do Google</p>
+                    <a href="https://www.google.com/maps?cid=10930899849700201697&hl=pt-BR" target="_blank" rel="noopener noreferrer" class="btn-ver-todas">Ver todas no Google</a>
+                </div>
+
+                <div class="carrossel-depoimentos">
+                    <button type="button" class="carrossel-btn carrossel-prev" aria-label="Depoimento anterior">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+                    <div class="carrossel-viewport">
+                        <div class="carrossel-track" id="carrossel-track">
+
+                            <div class="card-review">
+                                <div class="topo-review">
+                                    <div class="user-info">
+                                        <div class="avatar-falso" style="background-color: #E8D4F8; color: #6A1B9A;">A</div>
+                                        <div>
+                                            <h4>Aline Pala</h4>
+                                            <span>7 meses atrás</span>
+                                        </div>
+                                    </div>
+                                    <img src="/assets/google-logo.svg" alt="Google" class="review-mini-logo">
+                                </div>
+                                <div class="estrelas-card">
+                                    <div class="estrelas-row">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                    </div>
+                                    <img src="/assets/badge-verificado.svg" alt="Verificado" class="badge-verificado">
+                                </div>
+                                <p class="texto-review">Atendimento muito bom! Qualidade do produto muito boa.</p>
+                            </div>
+
+                            <div class="card-review">
+                                <div class="topo-review">
+                                    <div class="user-info">
+                                        <div class="avatar-falso" style="background-color: #E3F2FD; color: #1565C0;">B</div>
+                                        <div>
+                                            <h4>Bonis</h4>
+                                            <span>Google Reviews</span>
+                                        </div>
+                                    </div>
+                                    <img src="/assets/google-logo.svg" alt="Google" class="review-mini-logo">
+                                </div>
+                                <div class="estrelas-card">
+                                    <div class="estrelas-row">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                    </div>
+                                    <img src="/assets/badge-verificado.svg" alt="Verificado" class="badge-verificado">
+                                </div>
+                                <p class="texto-review">Ótima qualidade, trabalho e atendimento.</p>
+                            </div>
+
+                            <div class="card-review">
+                                <div class="topo-review">
+                                    <div class="user-info">
+                                        <div class="avatar-falso" style="background-color: #FFF3E0; color: #E65100;">N</div>
+                                        <div>
+                                            <h4>Naoanny Barbosa</h4>
+                                            <span>Google Reviews</span>
+                                        </div>
+                                    </div>
+                                    <img src="/assets/google-logo.svg" alt="Google" class="review-mini-logo">
+                                </div>
+                                <div class="estrelas-card">
+                                    <div class="estrelas-row">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                    </div>
+                                    <img src="/assets/badge-verificado.svg" alt="Verificado" class="badge-verificado">
+                                </div>
+                                <p class="texto-review">Atendimento top, e principalmente a agilidade para entregar o pedido! E sem contar a qualidade, apenas elogios!</p>
+                            </div>
+
+                            <div class="card-review">
+                                <div class="topo-review">
+                                    <div class="user-info">
+                                        <div class="avatar-falso" style="background-color: #E8F0F6; color: var(--verde-principal);">L</div>
+                                        <div>
+                                            <h4>Lucas Albano</h4>
+                                            <span>8 meses atrás</span>
+                                        </div>
+                                    </div>
+                                    <img src="/assets/google-logo.svg" alt="Google" class="review-mini-logo">
+                                </div>
+                                <div class="estrelas-card">
+                                    <div class="estrelas-row">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                    </div>
+                                    <img src="/assets/badge-verificado.svg" alt="Verificado" class="badge-verificado">
+                                </div>
+                                <p class="texto-review">Olá, boa tarde!! Pô, impecável! De coração mesmo.</p>
+                            </div>
+
+                            <div class="card-review">
+                                <div class="topo-review">
+                                    <div class="user-info">
+                                        <div class="avatar-falso" style="background-color: #F3E5F5; color: #7B1FA2;">V</div>
+                                        <div>
+                                            <h4>Vana Ribeiro</h4>
+                                            <span>Google Reviews</span>
+                                        </div>
+                                    </div>
+                                    <img src="/assets/google-logo.svg" alt="Google" class="review-mini-logo">
+                                </div>
+                                <div class="estrelas-card">
+                                    <div class="estrelas-row">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                    </div>
+                                    <img src="/assets/badge-verificado.svg" alt="Verificado" class="badge-verificado">
+                                </div>
+                                <p class="texto-review">Você superou as expectativas. Resultado de um trabalho feito com excelência e dedicação.</p>
+                            </div>
+
+                            <div class="card-review">
+                                <div class="topo-review">
+                                    <div class="user-info">
+                                        <div class="avatar-falso" style="background-color: #E8F5E9; color: #2E7D32;">L</div>
+                                        <div>
+                                            <h4>Lucas Atos</h4>
+                                            <span>Google Reviews</span>
+                                        </div>
+                                    </div>
+                                    <img src="/assets/google-logo.svg" alt="Google" class="review-mini-logo">
+                                </div>
+                                <div class="estrelas-card">
+                                    <div class="estrelas-row">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                        <img src="/assets/estrela.svg" alt="">
+                                    </div>
+                                    <img src="/assets/badge-verificado.svg" alt="Verificado" class="badge-verificado">
+                                </div>
+                                <p class="texto-review">Equipe bem agilizada e atendimento muito bom. Qualidade das ecobags muito boa também. Recomendo!</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <button type="button" class="carrossel-btn carrossel-next" aria-label="Próximo depoimento">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+                    <div class="carrossel-dots" id="carrossel-dots" role="tablist" aria-label="Navegação do carrossel"></div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="clientes">
+        <div class="container">
+            <h3>Empresas já atendidas</h3>
+            <div class="clientes-grid">
+                <img src="/assets/logo-ufpr.webp" alt="UFPR">
+                <img src="/assets/logo-pucpr.webp" alt="PUCPR">
+                <img src="/assets/logo-boticario.webp" alt="O Boticário">
+                <img src="/assets/logo-curitibacult.webp" alt="Curitiba Cult">
+                <img src="/assets/logo-bigben.webp" alt="Big Ben">
+                <img src="/assets/logo-rictv.webp" alt="RicTV">
+            </div>
+        </div>
+    </section>
+
+    <section class="sobre-premium" id="sobre">
+        <div class="container container-sobre">
+
+            <div class="sobre-conteudo">
+                <span class="sub-marca">Quem Somos</span>
+                <h2>Bem vindo(a) a<br><span class="nome-marca">Arteiros Personalizados</span></h2>
+
+                <p class="paragrafo-destaque">Somos uma confecção de Sacolas de Algodão produzidas de forma sustentável que buscam atender as necessidades de nossos clientes com o máximo de qualidade, com produtos que prolongam a exposição da marca e evitam o descarte precoce na natureza.</p>
+
+                <p>As Ecobags são desenvolvidas para quem valoriza sustentabilidade e estilo. Além disso, é um produto perfeito com custo baixo e faz com que sua marca seja destacada e saia na frente da concorrência.</p>
+
+                <div class="bloco-frase-efeito">
+                    <p>"Personalize do seu jeito e faça uma declaração tanto de moda quanto de compromisso ambiental."</p>
+                </div>
+
+                <a href="#orcamento" class="btn btn-sobre">Solicitar orçamento</a>
+            </div>
+
+            <div class="sobre-imagem-wrapper">
+                <div class="moldura-sobre">
+                    <img src="/assets/sobre-ecobag.webp" alt="Ecobag personalizada em Curitiba">
+                    <div class="selo-eco-flutuante">
+                        <i class="fa-solid fa-leaf"></i>
+                        <span>100% Sustentável</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="producao-premium" id="producao">
+        <div class="container container-producao">
+
+            <div class="producao-imagem-wrapper">
+                <div class="moldura-producao">
+                    <img src="/assets/producao-silk.webp" alt="Produção em silk screen de alta qualidade">
+                    <div class="badge-local-flutuante">
+                        <i class="fa-solid fa-truck-fast"></i>
+                        <span>Campina Grande do Sul & Região</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="producao-conteudo">
+                <span class="sub-producao">Agilidade & Logística</span>
+                <h2>Temos o melhor prazo de produção e entrega de Curitiba e Região!</h2>
+
+                <p>Fabricamos Ecobags ou Sacolas Ecológicas em Algodão Cru. Além disso, ganhamos destaque com modelos personalizados para semijoias, nécessaires e muito mais.</p>
+
+                <div class="lista-caracteristicas">
+                    <div class="caracteristica-item">
+                        <i class="fa-solid fa-bolt"></i>
+                        <span>Confecção Própria e Prazos Acelerados</span>
+                    </div>
+                    <div class="caracteristica-item">
+                        <i class="fa-solid fa-handshake"></i>
+                        <span>Atendimento 100% Personalizado</span>
+                    </div>
+                </div>
+
+                <div class="chamada-acao-box">
+                    <p>Clique no botão abaixo e fale conosco que faremos um atendimento personalizado para realizar seu projeto!</p>
+                </div>
+
+                <a href="#orcamento" class="btn btn-producao">Solicitar orçamento</a>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="contato-final-premium" id="orcamento">
+        <div class="container container-contato">
+
+            <div class="mapa-wrapper">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.835984650909!2d-49.1135668!3d-25.3097105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x86902efbca053963%3A0x97b25b7fb8c054e1!2sArteiros%20Personalizados!5e0!3m2!1spt-BR!2sbr!4v1749655663000!5m2!1spt-BR!2sbr"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="Arteiros Personalizados - Campina Grande do Sul">
+                </iframe>
+            </div>
+
+            <div class="form-wrapper-premium" id="leadForm">
+                <form action="#" method="get">
+                    <h3>Fale Conosco</h3>
+                    <p class="form-subtitle">Preencha os dados abaixo e receba um orçamento exclusivo em poucos minutos.</p>
+
+                    <div class="form-group-premium">
+                        <label for="nome"><i class="fa-regular fa-user"></i> Nome</label>
+                        <input type="text" id="nome" name="nome" class="input-premium" placeholder="Seu nome completo" required>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label for="telefone"><i class="fa-brands fa-whatsapp"></i> Telefone (WhatsApp)</label>
+                        <input type="tel" id="telefone" name="telefone" class="input-premium" placeholder="(41) 99999-9999" required>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label class="label-seletor">Selecione o produto de seu interesse:</label>
+                        <div class="seletor-tags-group">
+                            <label class="tag-label">
+                                <input type="checkbox" name="produto" value="Ecobag">
+                                <span>Ecobag</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="checkbox" name="produto" value="Sacochila">
+                                <span>Sacochila</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="checkbox" name="produto" value="Necessaire">
+                                <span>Necessaire</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="checkbox" name="produto" value="Saquinhos">
+                                <span>Saquinhos</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label class="label-seletor">Quantidade desejada:</label>
+                        <div class="seletor-tags-group">
+                            <label class="tag-label">
+                                <input type="radio" name="quantidade" value="50">
+                                <span>50 un.</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="radio" name="quantidade" value="100">
+                                <span>100 un.</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="radio" name="quantidade" value="200">
+                                <span>200 un.</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="radio" name="quantidade" value="300">
+                                <span>300 un.</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="radio" name="quantidade" value="500+">
+                                <span>500+ un.</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit-premium">Solicitar orçamento grátis</button>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <span class="footer-logo">
+                        <img src="/assets/logo.webp" alt="Arteiros Personalizados">
+                    </span>
+                    <p>Personalização exclusiva e sustentabilidade para a sua marca.</p>
+                </div>
+                <div>
+                    <h4>Navegação</h4>
+                    <ul>
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#produtos">Produtos</a></li>
+                        <li><a href="#sobre">Quem somos</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Contato</h4>
+                    <ul>
+                        <li><a href="https://wa.me/5541998175906" target="_blank"><i class="fa-brands fa-whatsapp"></i> +55 41 99817-5906</a></li>
+                        <li>
+                            <a href="https://www.google.com/maps?cid=10930899849700201697&hl=pt-BR" target="_blank" rel="noopener noreferrer">
+                                <i class="fa-solid fa-location-dot"></i>
+                                R. Augusto Floriano da Silva, 106 - Roseira<br>
+                                Campina Grande do Sul - PR, 83430-000
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                Todos os direitos reservados | Desenvolvido por Conceito Prime
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5541998175906?text=Oi!%20Eu%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20da%20Arteiros%20Personalizados%20:)" 
+       class="whatsapp-float" 
+       target="_blank" 
+       rel="noopener noreferrer"
+       aria-label="Fale conosco no WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <div class="modal-overlay" id="modal-orcamento" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
+        <div class="modal-box">
+            <button type="button" class="modal-close" id="fechar-modal" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
+
+            <div class="modal-header">
+                <div class="modal-header-top">
+                    <img src="/assets/logo.webp" alt="Arteiros Personalizados">
+                    <div>
+                        <span class="modal-badge"><i class="fa-solid fa-bolt"></i> Orçamento rápido</span>
+                        <h3 id="modal-titulo">Solicite seu orçamento</h3>
+                        <p>Preencha em menos de 1 minuto e receba uma proposta personalizada.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-notice">
+                    <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+                    Pedido mínimo de <strong>50 unidades</strong>
+                </div>
+
+                <form action="#" method="get" id="modal-form">
+                    <div class="form-group-premium">
+                        <label for="modal_nome"><i class="fa-regular fa-user"></i> Nome</label>
+                        <input type="text" id="modal_nome" name="modal_nome" class="input-premium" placeholder="Seu nome completo" required>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label for="modal_telefone"><i class="fa-brands fa-whatsapp"></i> Telefone (WhatsApp)</label>
+                        <input type="tel" id="modal_telefone" name="modal_telefone" class="input-premium" placeholder="(41) 99999-9999" required>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label class="label-seletor">Quantidade desejada:</label>
+                        <div class="seletor-tags-group">
+                            <label class="tag-label">
+                                <input type="radio" name="modal_qtd" value="50 - 100" required>
+                                <span>50 – 100</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="radio" name="modal_qtd" value="100 - 200">
+                                <span>100 – 200</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="radio" name="modal_qtd" value="200 - 500">
+                                <span>200 – 500</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="radio" name="modal_qtd" value="500 - 1.000">
+                                <span>500 – 1.000</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="radio" name="modal_qtd" value="1000 - 2.000">
+                                <span>1.000 – 2.000</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="radio" name="modal_qtd" value="Mais de 2.000">
+                                <span>2.000+</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group-premium">
+                        <label class="label-seletor">Tipo de produto:</label>
+                        <div class="seletor-tags-group">
+                            <label class="tag-label">
+                                <input type="radio" name="modal_produto" value="Ecobag" required>
+                                <span>Ecobag</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="radio" name="modal_produto" value="Sacochila">
+                                <span>Sacochila</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="radio" name="modal_produto" value="Necessaire">
+                                <span>Necessaire</span>
+                            </label>
+                            <label class="tag-label">
+                                <input type="radio" name="modal_produto" value="Saquinhos">
+                                <span>Saquinhos</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-submit-premium">Solicitar orçamento grátis</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // SCRIPT: Formulários → Apps Script + WhatsApp
+        (function () {
+            var WHATSAPP = '5541998175906';
+            var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzzDmX-w96dCU_RrpHALk3lR3lyMviwqfiN8RywJsFJKDlioY1l6Q2qLcCERkQrQ12HqQ/exec';
+
+            function sendToSheet(data) {
+                if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') return;
+                fetch(APPS_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                }).catch(function () {});
+            }
+
+            function getCheckedValues(form, name) {
+                return Array.from(form.querySelectorAll('[name="' + name + '"]:checked'))
+                    .map(function (el) { return el.value; });
+            }
+
+            function getRadioValue(form, name) {
+                var el = form.querySelector('[name="' + name + '"]:checked');
+                return el ? el.value : '';
+            }
+
+            function openWhatsApp(message) {
+                window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
+            }
+
+            function handleLeadForm(e) {
+                e.preventDefault();
+                var form = e.target;
+                var produtos = getCheckedValues(form, 'produto');
+                var quantidade = getRadioValue(form, 'quantidade');
+                sendToSheet({
+                    nome: (form.nome.value || '').trim(),
+                    telefone: (form.telefone.value || '').trim(),
+                    produtos: produtos.length ? produtos.join(', ') : 'Não informado',
+                    quantidade: quantidade || 'Não informada',
+                    origem: 'Ecobags - Formulário'
+                });
+                var lines = [
+                    'Olá! Vim pelo site e gostaria de um orçamento.',
+                    '',
+                    'Nome: ' + (form.nome.value || '').trim(),
+                    'Telefone: ' + (form.telefone.value || '').trim(),
+                    'Produto(s): ' + (produtos.length ? produtos.join(', ') : 'Não informado'),
+                    'Quantidade: ' + (quantidade || 'Não informada') + ' un.'
+                ];
+                openWhatsApp(lines.join('\n'));
+            }
+
+            function handleModalForm(e) {
+                e.preventDefault();
+                var form = e.target;
+                var quantidade = getRadioValue(form, 'modal_qtd');
+                var produto = getRadioValue(form, 'modal_produto');
+                sendToSheet({
+                    nome: (form.modal_nome.value || '').trim(),
+                    telefone: (form.modal_telefone.value || '').trim(),
+                    produtos: produto,
+                    quantidade: quantidade,
+                    origem: 'Ecobags - Modal'
+                });
+                var lines = [
+                    'Olá! Vim pelo site e gostaria de um orçamento.',
+                    '',
+                    'Nome: ' + (form.modal_nome.value || '').trim(),
+                    'Telefone: ' + (form.modal_telefone.value || '').trim(),
+                    'Quantidade: ' + quantidade,
+                    'Produto: ' + produto
+                ];
+                openWhatsApp(lines.join('\n'));
+
+                var modal = document.getElementById('modal-orcamento');
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.classList.remove('modal-open');
+                }
+            }
+
+            var leadForm = document.querySelector('#leadForm form');
+            var modalForm = document.getElementById('modal-form');
+
+            if (leadForm) leadForm.addEventListener('submit', handleLeadForm);
+            if (modalForm) modalForm.addEventListener('submit', handleModalForm);
+        })();
+
+        // SCRIPT: Header transparente → fixo e sólido no scroll
+        (function () {
+            var header = document.querySelector('header');
+            var spacer = document.getElementById('header-spacer');
+            if (!header) return;
+
+            function updateHeader() {
+                var scrolled = window.scrollY > 40;
+
+                if (scrolled) {
+                    if (spacer) spacer.style.height = header.offsetHeight + 'px';
+                    header.classList.add('scrolled');
+                } else {
+                    header.classList.remove('scrolled');
+                    if (spacer) spacer.style.height = '0';
+                }
+            }
+
+            window.addEventListener('scroll', updateHeader, { passive: true });
+            window.addEventListener('resize', updateHeader);
+            updateHeader();
+        })();
+
+        // SCRIPT: Menu Mobile
+        (function () {
+            var toggle = document.querySelector('.menu-toggle');
+            var closeBtn = document.querySelector('.menu-close');
+            var menu = document.getElementById('menu-lateral');
+            var overlay = document.getElementById('menu-overlay');
+            var links = menu.querySelectorAll('a');
+
+            function openMenu() {
+                menu.classList.add('active');
+                overlay.classList.add('active');
+                overlay.hidden = false;
+                document.body.classList.add('menu-open');
+                toggle.setAttribute('aria-expanded', 'true');
+                menu.setAttribute('aria-hidden', 'false');
+            }
+
+            function closeMenu() {
+                menu.classList.remove('active');
+                overlay.classList.remove('active');
+                document.body.classList.remove('menu-open');
+                toggle.setAttribute('aria-expanded', 'false');
+                menu.setAttribute('aria-hidden', 'true');
+                setTimeout(function () {
+                    if (!menu.classList.contains('active')) {
+                        overlay.hidden = true;
+                    }
+                }, 350);
+            }
+
+            toggle.addEventListener('click', openMenu);
+            closeBtn.addEventListener('click', closeMenu);
+            overlay.addEventListener('click', closeMenu);
+            links.forEach(function (link) {
+                link.addEventListener('click', closeMenu);
+            });
+            window.addEventListener('resize', function () {
+                if (window.innerWidth > 992) {
+                    closeMenu();
+                }
+            });
+        })();
+
+        // SCRIPT: Lógica do Carrossel de Depoimentos
+        (function () {
+            var track = document.getElementById('carrossel-track');
+            if (!track) return;
+
+            var viewport = track.parentElement;
+            var prevBtn = document.querySelector('.carrossel-prev');
+            var nextBtn = document.querySelector('.carrossel-next');
+            var dotsContainer = document.getElementById('carrossel-dots');
+            var cards = track.querySelectorAll('.card-review');
+            var currentIndex = 0;
+            var slidesPerView = 1;
+            var gap = 24;
+
+            function getSlidesPerView() {
+                return window.innerWidth >= 992 ? 2 : 1;
+            }
+
+            function getMaxIndex() {
+                return Math.max(0, cards.length - slidesPerView);
+            }
+
+            function setCardWidths() {
+                slidesPerView = getSlidesPerView();
+                var vpWidth = viewport.offsetWidth;
+                var cardWidth = Math.floor((vpWidth - gap * (slidesPerView - 1)) / slidesPerView);
+                cards.forEach(function (card) { card.style.width = cardWidth + 'px'; });
+            }
+
+            function buildDots() {
+                if (!dotsContainer) return;
+                var total = getMaxIndex() + 1;
+                dotsContainer.innerHTML = '';
+                for (var i = 0; i < total; i++) {
+                    var dot = document.createElement('button');
+                    dot.className = 'carrossel-dot' + (i === currentIndex ? ' active' : '');
+                    dot.setAttribute('aria-label', 'Depoimento ' + (i + 1));
+                    dot.setAttribute('role', 'tab');
+                    (function (idx) {
+                        dot.addEventListener('click', function () {
+                            currentIndex = idx;
+                            updateCarousel();
+                        });
+                    })(i);
+                    dotsContainer.appendChild(dot);
+                }
+            }
+
+            function updateDots() {
+                if (!dotsContainer) return;
+                var dots = dotsContainer.querySelectorAll('.carrossel-dot');
+                dots.forEach(function (dot, i) {
+                    dot.classList.toggle('active', i === currentIndex);
+                });
+            }
+
+            function updateCarousel() {
+                if (currentIndex > getMaxIndex()) currentIndex = getMaxIndex();
+                var slideWidth = cards[0].offsetWidth + gap;
+                track.style.transform = 'translateX(-' + (currentIndex * slideWidth) + 'px)';
+                prevBtn.disabled = currentIndex === 0;
+                nextBtn.disabled = currentIndex >= getMaxIndex();
+                updateDots();
+            }
+
+            prevBtn.addEventListener('click', function () {
+                if (currentIndex > 0) { currentIndex--; updateCarousel(); }
+            });
+
+            nextBtn.addEventListener('click', function () {
+                if (currentIndex < getMaxIndex()) { currentIndex++; updateCarousel(); }
+            });
+
+            var touchStartX = 0;
+            track.addEventListener('touchstart', function (e) {
+                touchStartX = e.changedTouches[0].screenX;
+            }, { passive: true });
+
+            track.addEventListener('touchend', function (e) {
+                var diff = touchStartX - e.changedTouches[0].screenX;
+                if (Math.abs(diff) > 50) {
+                    if (diff > 0 && currentIndex < getMaxIndex()) currentIndex++;
+                    else if (diff < 0 && currentIndex > 0) currentIndex--;
+                    updateCarousel();
+                }
+            }, { passive: true });
+
+            window.addEventListener('resize', function () {
+                currentIndex = 0;
+                setCardWidths();
+                buildDots();
+                updateCarousel();
+            });
+
+            setCardWidths();
+            buildDots();
+            updateCarousel();
+        })();
+
+        // SCRIPT: Lógica do Pop-up (Modal) de Orçamento
+        (function () {
+            var modal = document.getElementById('modal-orcamento');
+            var closeModalBtn = document.getElementById('fechar-modal');
+            var botoesOrcamento = document.querySelectorAll('a[href="#orcamento"]');
+
+            function openModal() {
+                modal.classList.add('active');
+                document.body.classList.add('modal-open');
+            }
+
+            function closeModal() {
+                modal.classList.remove('active');
+                document.body.classList.remove('modal-open');
+            }
+
+            botoesOrcamento.forEach(function(btn) {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    openModal();
+
+                    if (document.body.classList.contains('menu-open')) {
+                        document.querySelector('.menu-close').click();
+                    }
+                });
+            });
+
+            closeModalBtn.addEventListener('click', closeModal);
+
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) closeModal();
+            });
+
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+            });
+        })();
+    </script>
+
+</body>
+</html>
