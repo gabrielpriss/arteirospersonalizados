@@ -2406,9 +2406,8 @@
     </script>
 
     <script>
-        // SCRIPT: Formulários → Apps Script + WhatsApp
+        // SCRIPT: Formulários → Apps Script (webhook planilha)
         (function () {
-            var WHATSAPP = '5541998175906';
             var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzn68obYbnM_kxzj5jmg2afGjGWB5NC9ANIevZ9lnGWFbvSqiMEftNd7zNf3sADqQcL/exec';
 
             function sendToSheet(data) {
@@ -2431,8 +2430,19 @@
                 return el ? el.value : '';
             }
 
-            function openWhatsApp(message) {
-                window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(message), '_blank', 'noopener,noreferrer');
+            function showSuccess(form, btn) {
+                var original = btn ? btn.innerHTML : '';
+                if (btn) {
+                    btn.disabled = true;
+                    btn.innerHTML = '<i class="fa-solid fa-check"></i> Orçamento enviado!';
+                }
+                form.reset();
+                if (btn) {
+                    setTimeout(function () {
+                        btn.disabled = false;
+                        btn.innerHTML = original;
+                    }, 4000);
+                }
             }
 
             function handleLeadForm(e) {
@@ -2447,15 +2457,7 @@
                     quantidade: quantidade || 'Não informada',
                     origem: 'Ecobags - Formulário'
                 });
-                var lines = [
-                    'Olá! Vim pelo site e gostaria de um orçamento.',
-                    '',
-                    'Nome: ' + (form.nome.value || '').trim(),
-                    'Telefone: ' + (form.telefone.value || '').trim(),
-                    'Produto(s): ' + (produtos.length ? produtos.join(', ') : 'Não informado'),
-                    'Quantidade: ' + (quantidade || 'Não informada') + ' un.'
-                ];
-                openWhatsApp(lines.join('\n'));
+                showSuccess(form, form.querySelector('button[type="submit"]'));
             }
 
             function handleModalForm(e) {
@@ -2470,20 +2472,14 @@
                     quantidade: quantidade,
                     origem: 'Ecobags - Modal'
                 });
-                var lines = [
-                    'Olá! Vim pelo site e gostaria de um orçamento.',
-                    '',
-                    'Nome: ' + (form.modal_nome.value || '').trim(),
-                    'Telefone: ' + (form.modal_telefone.value || '').trim(),
-                    'Quantidade: ' + quantidade,
-                    'Produto: ' + produto
-                ];
-                openWhatsApp(lines.join('\n'));
+                showSuccess(form, form.querySelector('button[type="submit"]'));
 
                 var modal = document.getElementById('modal-orcamento');
                 if (modal) {
-                    modal.classList.remove('active');
-                    document.body.classList.remove('modal-open');
+                    setTimeout(function () {
+                        modal.classList.remove('active');
+                        document.body.classList.remove('modal-open');
+                    }, 1500);
                 }
             }
 
