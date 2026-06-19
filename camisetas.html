@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-M3NRMG6H');</script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Camisetas Personalizadas em Curitiba | Arteiros Personalizados</title>
@@ -1079,6 +1086,10 @@
     </style>
 </head>
 <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-M3NRMG6H"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
     <div class="topbar">
         <p class="topbar-text">
@@ -1496,6 +1507,25 @@
             };
         })();
 
+        // Envia eventos para o GTM (dataLayer).
+        window.dataLayer = window.dataLayer || [];
+        function dlPush(evento, extra) {
+            var payload = {
+                event: evento,
+                pagina: 'Camisetas',
+                termo: tracking.termo,
+                campanha: tracking.campanha
+            };
+            if (extra) Object.keys(extra).forEach(function (k) { payload[k] = extra[k]; });
+            window.dataLayer.push(payload);
+        }
+
+        // Dispara evento ao clicar em qualquer CTA de WhatsApp (links wa.me).
+        document.addEventListener('click', function (e) {
+            var link = e.target.closest('a[href*="wa.me"], a[href*="api.whatsapp.com"]');
+            if (link) dlPush('clique_whatsapp', { local: link.getAttribute('aria-label') || link.textContent.trim() || 'WhatsApp' });
+        });
+
         function sendToSheet(data) {
             if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') {
                 return Promise.resolve();
@@ -1646,6 +1676,7 @@
                         var btn = form.querySelector('button[type="submit"]');
                         if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviando...'; }
 
+                        dlPush('envio_formulario', { form_origem: 'Camisetas - Modal', quantidade: quantidade, produtos: produto });
                         Promise.resolve(sendToSheet({
                             nome: nome,
                             telefone: telefone,
