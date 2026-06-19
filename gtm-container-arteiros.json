@@ -21,11 +21,11 @@
         "accountId": "0",
         "containerId": "0",
         "tagId": "1",
-        "name": "GA4 - Configuração",
-        "type": "gaawc",
+        "name": "Google Ads - Vinculador de Conversoes",
+        "type": "gclidw",
         "parameter": [
-          { "type": "BOOLEAN", "key": "sendPageView", "value": "true" },
-          { "type": "TEMPLATE", "key": "measurementId", "value": "{{Const - GA4 Measurement ID}}" }
+          { "type": "BOOLEAN", "key": "enableCrossDomain", "value": "false" },
+          { "type": "BOOLEAN", "key": "acceptIncoming", "value": "true" }
         ],
         "firingTriggerId": ["2147479553"],
         "tagFiringOption": "ONCE_PER_EVENT"
@@ -34,33 +34,13 @@
         "accountId": "0",
         "containerId": "0",
         "tagId": "2",
-        "name": "GA4 - Evento - Envio Formulario",
-        "type": "gaawe",
+        "name": "Google Ads - Conversao - Formularios",
+        "type": "awct",
         "parameter": [
-          { "type": "TEMPLATE", "key": "eventName", "value": "generate_lead" },
-          {
-            "type": "LIST",
-            "key": "eventParameters",
-            "list": [
-              { "type": "MAP", "map": [
-                { "type": "TEMPLATE", "key": "name", "value": "form_origem" },
-                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - form_origem}}" }
-              ]},
-              { "type": "MAP", "map": [
-                { "type": "TEMPLATE", "key": "name", "value": "pagina" },
-                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - pagina}}" }
-              ]},
-              { "type": "MAP", "map": [
-                { "type": "TEMPLATE", "key": "name", "value": "termo" },
-                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - termo}}" }
-              ]},
-              { "type": "MAP", "map": [
-                { "type": "TEMPLATE", "key": "name", "value": "campanha" },
-                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - campanha}}" }
-              ]}
-            ]
-          },
-          { "type": "TAG_REFERENCE", "key": "measurementId", "value": "GA4 - Configuração" }
+          { "type": "TEMPLATE", "key": "conversionId", "value": "11484851379" },
+          { "type": "TEMPLATE", "key": "conversionLabel", "value": "qhajCMbrzv8aELPZs-Qq" },
+          { "type": "BOOLEAN", "key": "enableConversionLinker", "value": "true" },
+          { "type": "TEMPLATE", "key": "rdp", "value": "false" }
         ],
         "firingTriggerId": ["3"],
         "tagFiringOption": "ONCE_PER_EVENT"
@@ -69,33 +49,13 @@
         "accountId": "0",
         "containerId": "0",
         "tagId": "3",
-        "name": "GA4 - Evento - Clique WhatsApp",
-        "type": "gaawe",
+        "name": "Google Ads - Conversao - Botao WhatsApp",
+        "type": "awct",
         "parameter": [
-          { "type": "TEMPLATE", "key": "eventName", "value": "contato_whatsapp" },
-          {
-            "type": "LIST",
-            "key": "eventParameters",
-            "list": [
-              { "type": "MAP", "map": [
-                { "type": "TEMPLATE", "key": "name", "value": "local" },
-                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - local}}" }
-              ]},
-              { "type": "MAP", "map": [
-                { "type": "TEMPLATE", "key": "name", "value": "pagina" },
-                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - pagina}}" }
-              ]},
-              { "type": "MAP", "map": [
-                { "type": "TEMPLATE", "key": "name", "value": "termo" },
-                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - termo}}" }
-              ]},
-              { "type": "MAP", "map": [
-                { "type": "TEMPLATE", "key": "name", "value": "campanha" },
-                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - campanha}}" }
-              ]}
-            ]
-          },
-          { "type": "TAG_REFERENCE", "key": "measurementId", "value": "GA4 - Configuração" }
+          { "type": "TEMPLATE", "key": "conversionId", "value": "11484851379" },
+          { "type": "TEMPLATE", "key": "conversionLabel", "value": "a1xRCKX73Y0ZELPZs-Qq" },
+          { "type": "BOOLEAN", "key": "enableConversionLinker", "value": "true" },
+          { "type": "TEMPLATE", "key": "rdp", "value": "false" }
         ],
         "firingTriggerId": ["4"],
         "tagFiringOption": "ONCE_PER_EVENT"
@@ -179,13 +139,6 @@
           { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
           { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" },
           { "type": "TEMPLATE", "key": "name", "value": "pagina" }
-        ]
-      },
-      {
-        "accountId": "0", "containerId": "0", "variableId": "6",
-        "name": "Const - GA4 Measurement ID", "type": "c",
-        "parameter": [
-          { "type": "TEMPLATE", "key": "value", "value": "G-XXXXXXXXXX" }
         ]
       }
     ],
