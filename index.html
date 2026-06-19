@@ -2406,18 +2406,36 @@
     </script>
 
     <script>
-        // SCRIPT: Formulários → Apps Script (webhook planilha)
+        // SCRIPT: Formulários → Apps Script (webhook planilha) + WhatsApp
         (function () {
+            var WHATSAPP = '5541998175906';
             var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzn68obYbnM_kxzj5jmg2afGjGWB5NC9ANIevZ9lnGWFbvSqiMEftNd7zNf3sADqQcL/exec';
 
             function sendToSheet(data) {
-                if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') return;
-                fetch(APPS_SCRIPT_URL, {
+                if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') {
+                    return Promise.resolve();
+                }
+                var body = JSON.stringify(data);
+                // sendBeacon garante a entrega mesmo se a página for redirecionada logo em seguida.
+                if (navigator.sendBeacon) {
+                    try {
+                        var blob = new Blob([body], { type: 'text/plain;charset=UTF-8' });
+                        if (navigator.sendBeacon(APPS_SCRIPT_URL, blob)) {
+                            return Promise.resolve();
+                        }
+                    } catch (err) { /* fallback abaixo */ }
+                }
+                return fetch(APPS_SCRIPT_URL, {
                     method: 'POST',
                     mode: 'no-cors',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(data)
+                    keepalive: true,
+                    headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                    body: body
                 }).catch(function () {});
+            }
+
+            function openWhatsApp(message) {
+                window.location.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(message);
             }
 
             function getCheckedValues(form, name) {
@@ -2430,34 +2448,34 @@
                 return el ? el.value : '';
             }
 
-            function showSuccess(form, btn) {
-                var original = btn ? btn.innerHTML : '';
-                if (btn) {
-                    btn.disabled = true;
-                    btn.innerHTML = '<i class="fa-solid fa-check"></i> Orçamento enviado!';
-                }
-                form.reset();
-                if (btn) {
-                    setTimeout(function () {
-                        btn.disabled = false;
-                        btn.innerHTML = original;
-                    }, 4000);
-                }
-            }
-
             function handleLeadForm(e) {
                 e.preventDefault();
                 var form = e.target;
                 var produtos = getCheckedValues(form, 'produto');
                 var quantidade = getRadioValue(form, 'quantidade');
-                sendToSheet({
-                    nome: (form.nome.value || '').trim(),
-                    telefone: (form.telefone.value || '').trim(),
-                    produtos: produtos.length ? produtos.join(', ') : 'Não informado',
-                    quantidade: quantidade || 'Não informada',
+                var nome = (form.nome.value || '').trim();
+                var telefone = (form.telefone.value || '').trim();
+                var produtosTxt = produtos.length ? produtos.join(', ') : 'Não informado';
+                var quantidadeTxt = quantidade || 'Não informada';
+                var btn = form.querySelector('button[type="submit"]');
+                if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviando...'; }
+
+                Promise.resolve(sendToSheet({
+                    nome: nome,
+                    telefone: telefone,
+                    produtos: produtosTxt,
+                    quantidade: quantidadeTxt,
                     origem: 'Ecobags - Formulário'
+                })).finally(function () {
+                    openWhatsApp([
+                        'Olá! Vim pelo site e gostaria de um orçamento.',
+                        '',
+                        'Nome: ' + nome,
+                        'Telefone: ' + telefone,
+                        'Produto(s): ' + produtosTxt,
+                        'Quantidade: ' + quantidadeTxt + ' un.'
+                    ].join('\n'));
                 });
-                showSuccess(form, form.querySelector('button[type="submit"]'));
             }
 
             function handleModalForm(e) {
@@ -2465,22 +2483,27 @@
                 var form = e.target;
                 var quantidade = getRadioValue(form, 'modal_qtd');
                 var produto = getRadioValue(form, 'modal_produto');
-                sendToSheet({
-                    nome: (form.modal_nome.value || '').trim(),
-                    telefone: (form.modal_telefone.value || '').trim(),
+                var nome = (form.modal_nome.value || '').trim();
+                var telefone = (form.modal_telefone.value || '').trim();
+                var btn = form.querySelector('button[type="submit"]');
+                if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviando...'; }
+
+                Promise.resolve(sendToSheet({
+                    nome: nome,
+                    telefone: telefone,
                     produtos: produto,
                     quantidade: quantidade,
                     origem: 'Ecobags - Modal'
+                })).finally(function () {
+                    openWhatsApp([
+                        'Olá! Vim pelo site e gostaria de um orçamento.',
+                        '',
+                        'Nome: ' + nome,
+                        'Telefone: ' + telefone,
+                        'Quantidade: ' + quantidade,
+                        'Produto: ' + produto
+                    ].join('\n'));
                 });
-                showSuccess(form, form.querySelector('button[type="submit"]'));
-
-                var modal = document.getElementById('modal-orcamento');
-                if (modal) {
-                    setTimeout(function () {
-                        modal.classList.remove('active');
-                        document.body.classList.remove('modal-open');
-                    }, 1500);
-                }
             }
 
             var leadForm = document.querySelector('#leadForm form');
