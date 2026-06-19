@@ -1,0 +1,194 @@
+{
+  "exportFormatVersion": 2,
+  "exportTime": "2026-06-19 00:00:00",
+  "containerVersion": {
+    "path": "accounts/0/containers/0/versions/0",
+    "accountId": "0",
+    "containerId": "0",
+    "containerVersionId": "0",
+    "container": {
+      "path": "accounts/0/containers/0",
+      "accountId": "0",
+      "containerId": "0",
+      "name": "Arteiros Personalizados",
+      "publicId": "GTM-M3NRMG6H",
+      "usageContext": ["WEB"],
+      "fingerprint": "0",
+      "tagManagerUrl": "https://tagmanager.google.com/"
+    },
+    "tag": [
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "1",
+        "name": "GA4 - Configuração",
+        "type": "gaawc",
+        "parameter": [
+          { "type": "BOOLEAN", "key": "sendPageView", "value": "true" },
+          { "type": "TEMPLATE", "key": "measurementId", "value": "{{Const - GA4 Measurement ID}}" }
+        ],
+        "firingTriggerId": ["2147479553"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "2",
+        "name": "GA4 - Evento - Envio Formulario",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "eventName", "value": "generate_lead" },
+          {
+            "type": "LIST",
+            "key": "eventParameters",
+            "list": [
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "name", "value": "form_origem" },
+                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - form_origem}}" }
+              ]},
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "name", "value": "pagina" },
+                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - pagina}}" }
+              ]},
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "name", "value": "termo" },
+                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - termo}}" }
+              ]},
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "name", "value": "campanha" },
+                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - campanha}}" }
+              ]}
+            ]
+          },
+          { "type": "TAG_REFERENCE", "key": "measurementId", "value": "GA4 - Configuração" }
+        ],
+        "firingTriggerId": ["3"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "tagId": "3",
+        "name": "GA4 - Evento - Clique WhatsApp",
+        "type": "gaawe",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "eventName", "value": "contato_whatsapp" },
+          {
+            "type": "LIST",
+            "key": "eventParameters",
+            "list": [
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "name", "value": "local" },
+                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - local}}" }
+              ]},
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "name", "value": "pagina" },
+                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - pagina}}" }
+              ]},
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "name", "value": "termo" },
+                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - termo}}" }
+              ]},
+              { "type": "MAP", "map": [
+                { "type": "TEMPLATE", "key": "name", "value": "campanha" },
+                { "type": "TEMPLATE", "key": "value", "value": "{{DLV - campanha}}" }
+              ]}
+            ]
+          },
+          { "type": "TAG_REFERENCE", "key": "measurementId", "value": "GA4 - Configuração" }
+        ],
+        "firingTriggerId": ["4"],
+        "tagFiringOption": "ONCE_PER_EVENT"
+      }
+    ],
+    "trigger": [
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "3",
+        "name": "CE - envio_formulario",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "envio_formulario" }
+            ]
+          }
+        ]
+      },
+      {
+        "accountId": "0",
+        "containerId": "0",
+        "triggerId": "4",
+        "name": "CE - clique_whatsapp",
+        "type": "CUSTOM_EVENT",
+        "customEventFilter": [
+          {
+            "type": "EQUALS",
+            "parameter": [
+              { "type": "TEMPLATE", "key": "arg0", "value": "{{_event}}" },
+              { "type": "TEMPLATE", "key": "arg1", "value": "clique_whatsapp" }
+            ]
+          }
+        ]
+      }
+    ],
+    "variable": [
+      {
+        "accountId": "0", "containerId": "0", "variableId": "1",
+        "name": "DLV - termo", "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" },
+          { "type": "TEMPLATE", "key": "name", "value": "termo" }
+        ]
+      },
+      {
+        "accountId": "0", "containerId": "0", "variableId": "2",
+        "name": "DLV - campanha", "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" },
+          { "type": "TEMPLATE", "key": "name", "value": "campanha" }
+        ]
+      },
+      {
+        "accountId": "0", "containerId": "0", "variableId": "3",
+        "name": "DLV - form_origem", "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" },
+          { "type": "TEMPLATE", "key": "name", "value": "form_origem" }
+        ]
+      },
+      {
+        "accountId": "0", "containerId": "0", "variableId": "4",
+        "name": "DLV - local", "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" },
+          { "type": "TEMPLATE", "key": "name", "value": "local" }
+        ]
+      },
+      {
+        "accountId": "0", "containerId": "0", "variableId": "5",
+        "name": "DLV - pagina", "type": "v",
+        "parameter": [
+          { "type": "INTEGER", "key": "dataLayerVersion", "value": "2" },
+          { "type": "BOOLEAN", "key": "setDefaultValue", "value": "false" },
+          { "type": "TEMPLATE", "key": "name", "value": "pagina" }
+        ]
+      },
+      {
+        "accountId": "0", "containerId": "0", "variableId": "6",
+        "name": "Const - GA4 Measurement ID", "type": "c",
+        "parameter": [
+          { "type": "TEMPLATE", "key": "value", "value": "G-XXXXXXXXXX" }
+        ]
+      }
+    ],
+    "fingerprint": "0"
+  }
+}
