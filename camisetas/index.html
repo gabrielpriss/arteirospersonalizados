@@ -1477,12 +1477,25 @@
         var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzn68obYbnM_kxzj5jmg2afGjGWB5NC9ANIevZ9lnGWFbvSqiMEftNd7zNf3sADqQcL/exec';
 
         function sendToSheet(data) {
-            if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') return;
-            fetch(APPS_SCRIPT_URL, {
+            if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') {
+                return Promise.resolve();
+            }
+            var body = JSON.stringify(data);
+            // sendBeacon garante a entrega mesmo se a página for redirecionada logo em seguida.
+            if (navigator.sendBeacon) {
+                try {
+                    var blob = new Blob([body], { type: 'text/plain;charset=UTF-8' });
+                    if (navigator.sendBeacon(APPS_SCRIPT_URL, blob)) {
+                        return Promise.resolve();
+                    }
+                } catch (err) { /* fallback abaixo */ }
+            }
+            return fetch(APPS_SCRIPT_URL, {
                 method: 'POST',
                 mode: 'no-cors',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
+                keepalive: true,
+                headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+                body: body
             }).catch(function () {});
         }
 
@@ -1608,24 +1621,27 @@
                         var prodEl = form.querySelector('[name="modal_produto"]:checked');
                         var quantidade = qtdEl ? qtdEl.value : '';
                         var produto = prodEl ? prodEl.value : '';
+                        var nome = (form.modal_nome.value || '').trim();
+                        var telefone = (form.modal_telefone.value || '').trim();
+                        var btn = form.querySelector('button[type="submit"]');
+                        if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviando...'; }
 
-                        sendToSheet({
-                            nome: (form.modal_nome.value || '').trim(),
-                            telefone: (form.modal_telefone.value || '').trim(),
+                        Promise.resolve(sendToSheet({
+                            nome: nome,
+                            telefone: telefone,
                             produtos: produto,
                             quantidade: quantidade,
                             origem: 'Camisetas - Modal'
+                        })).finally(function () {
+                            window.location.href = 'https://wa.me/5541998175906?text=' + encodeURIComponent([
+                                'Olá! Vim pelo site e gostaria de um orçamento.',
+                                '',
+                                'Nome: ' + nome,
+                                'Telefone: ' + telefone,
+                                'Quantidade: ' + quantidade,
+                                'Produto: ' + produto
+                            ].join('\n'));
                         });
-
-                        var lines = [
-                            'Olá! Vim pelo site e gostaria de um orçamento.',
-                            '',
-                            'Nome: ' + (form.modal_nome.value || '').trim(),
-                            'Telefone: ' + (form.modal_telefone.value || '').trim(),
-                            'Quantidade: ' + quantidade,
-                            'Produto: ' + produto
-                        ];
-                        window.open('https://wa.me/5541998175906?text=' + encodeURIComponent(lines.join('\n')), '_blank', 'noopener,noreferrer');
                         closeModal();
                     });
                 }
