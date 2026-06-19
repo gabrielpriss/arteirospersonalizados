@@ -2411,6 +2411,26 @@
             var WHATSAPP = '5541998175906';
             var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzn68obYbnM_kxzj5jmg2afGjGWB5NC9ANIevZ9lnGWFbvSqiMEftNd7zNf3sADqQcL/exec';
 
+            // Captura parâmetros de campanha da URL (Google Ads) e mantém entre páginas.
+            var tracking = (function () {
+                var params = new URLSearchParams(window.location.search);
+                var keys = ['utm_term', 'utm_campaign', 'utm_source', 'utm_medium', 'gclid'];
+                var stored = {};
+                try { stored = JSON.parse(sessionStorage.getItem('arteiros_tracking') || '{}'); } catch (e) {}
+                keys.forEach(function (k) {
+                    var v = params.get(k);
+                    if (v) stored[k] = v;
+                });
+                try { sessionStorage.setItem('arteiros_tracking', JSON.stringify(stored)); } catch (e) {}
+                return {
+                    termo: stored.utm_term || '',
+                    campanha: stored.utm_campaign || '',
+                    origem_trafego: stored.utm_source || '',
+                    midia: stored.utm_medium || '',
+                    gclid: stored.gclid || ''
+                };
+            })();
+
             function sendToSheet(data) {
                 if (!APPS_SCRIPT_URL || APPS_SCRIPT_URL === 'COLE_AQUI_A_URL_DO_APPS_SCRIPT') {
                     return Promise.resolve();
@@ -2465,7 +2485,9 @@
                     telefone: telefone,
                     produtos: produtosTxt,
                     quantidade: quantidadeTxt,
-                    origem: 'Ecobags - Formulário'
+                    origem: 'Ecobags - Formulário',
+                    termo: tracking.termo,
+                    campanha: tracking.campanha
                 })).finally(function () {
                     openWhatsApp([
                         'Olá! Vim pelo site e gostaria de um orçamento.',
@@ -2493,7 +2515,9 @@
                     telefone: telefone,
                     produtos: produto,
                     quantidade: quantidade,
-                    origem: 'Ecobags - Modal'
+                    origem: 'Ecobags - Modal',
+                    termo: tracking.termo,
+                    campanha: tracking.campanha
                 })).finally(function () {
                     openWhatsApp([
                         'Olá! Vim pelo site e gostaria de um orçamento.',
