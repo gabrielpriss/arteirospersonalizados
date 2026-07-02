@@ -20,18 +20,18 @@
     <meta property="og:title" content="Arteiros Personalizados | Ecobags e Sacolas Personalizadas em Curitiba">
     <meta property="og:description" content="Ecobags, sacochilas, nécessaires e saquinhos personalizados para empresas e eventos. Pedido mínimo de 50 unidades. Orçamento grátis em Curitiba e região.">
     <meta property="og:url" content="https://arteirospersonalizados.com.br/">
-    <meta property="og:image" content="https://arteirospersonalizados.com.br/assets/hero-ecobags.webp">
+    <meta property="og:image" content="https://arteirospersonalizados.com.br/assets/hero-colagem-ecobags.webp">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:locale" content="pt_BR">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Arteiros Personalizados | Ecobags e Sacolas Personalizadas">
     <meta name="twitter:description" content="Ecobags, sacochilas, nécessaires e saquinhos personalizados para empresas e eventos em Curitiba e região.">
-    <meta name="twitter:image" content="https://arteirospersonalizados.com.br/assets/hero-ecobags.webp">
+    <meta name="twitter:image" content="https://arteirospersonalizados.com.br/assets/hero-colagem-ecobags.webp">
 
     <link rel="icon" href="/assets/logo.webp" type="image/png">
     <link rel="apple-touch-icon" href="/assets/logo.webp">
-    <link rel="preload" as="image" href="/assets/hero-ecobags.webp">
+    <link rel="preload" as="image" href="/assets/hero-colagem-ecobags.webp">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -368,7 +368,7 @@
 
         /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(13, 49, 81, 0.88), rgba(13, 49, 81, 0.78)), url('/assets/hero-ecobags.webp') center/cover;
+            background: linear-gradient(rgba(13, 49, 81, 0.84), rgba(13, 49, 81, 0.72)), url('/assets/hero-colagem-ecobags.webp') center/cover;
             padding: calc(100px + var(--header-height)) 0 120px;
             color: var(--branco);
             text-align: center;
@@ -881,6 +881,51 @@
             width: auto;
             max-width: 160px;
             object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        /* Galeria de trabalhos entregues */
+        .galeria-trabalhos {
+            padding: 100px 0 90px;
+            background-color: var(--verde-pale);
+            overflow: hidden;
+            text-align: center;
+        }
+        .galeria-trabalhos h2 {
+            font-size: 38px;
+            margin-bottom: 16px;
+        }
+        .subtitulo-galeria {
+            font-family: var(--font-corpo);
+            font-size: 17px;
+            color: var(--texto-corpo);
+            max-width: 580px;
+            margin: 0 auto 48px;
+        }
+        .galeria-track-wrapper {
+            overflow: hidden;
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%);
+        }
+        .galeria-track {
+            display: flex;
+            width: max-content;
+            animation: galeria-scroll 55s linear infinite;
+        }
+        .galeria-track:hover {
+            animation-play-state: paused;
+        }
+        @keyframes galeria-scroll {
+            0%   { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .galeria-track img {
+            width: 288px;
+            height: 360px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-right: 24px;
+            box-shadow: 0 12px 28px rgba(13, 49, 81, 0.14);
             flex-shrink: 0;
         }
 
@@ -1599,7 +1644,16 @@
             }
         }
         @media (max-width: 768px) {
-            .titulo-produtos, .materiais-conteudo h2, .sobre-conteudo h2, .producao-conteudo h2, .depoimentos-premium h2 { font-size: 28px; }
+            .titulo-produtos, .materiais-conteudo h2, .sobre-conteudo h2, .producao-conteudo h2, .depoimentos-premium h2, .galeria-trabalhos h2 { font-size: 28px; }
+            .galeria-trabalhos {
+                padding: 72px 0 64px;
+            }
+            .galeria-track img {
+                width: 216px;
+                height: 270px;
+                margin-right: 16px;
+                border-radius: 10px;
+            }
             .container-sobre, .container-producao {
                 grid-template-columns: 1fr;
                 gap: 40px;
@@ -1769,6 +1823,7 @@
                 <li><a href="/camisetas/">Camisetas</a></li>
                 <li><a href="#sobre">Quem somos</a></li>
                 <li><a href="#materiais">Cores & Tecidos</a></li>
+                <li><a href="#galeria">Trabalhos</a></li>
                 <li><a href="#depoimentos">Depoimentos</a></li>
                 <li><a href="#producao">Produção</a></li>
             </ul>
@@ -1876,6 +1931,42 @@
                 </div>
             </div>
 
+        </div>
+    </section>
+
+    <section class="galeria-trabalhos" id="galeria">
+        <div class="container">
+            <h2>Trabalhos que já entregamos</h2>
+            <p class="subtitulo-galeria">Fotos reais de ecobags, sacolas e saquinhos personalizados produzidos aqui e entregues aos nossos clientes.</p>
+        </div>
+        <div class="galeria-track-wrapper">
+            <div class="galeria-track">
+                <img src="/assets/galeria-ecobag-curitiba-cult.webp" alt="Ecobag personalizada Curitiba Cult 10 anos" loading="lazy">
+                <img src="/assets/galeria-ecobag-garimpa.webp" alt="Ecobag personalizada com logo da Garimpa" loading="lazy">
+                <img src="/assets/galeria-ecobag-leao.webp" alt="Ecobag com estampa colorida de leão" loading="lazy">
+                <img src="/assets/galeria-sacola-nina-colori.webp" alt="Sacola personalizada Nina Colori" loading="lazy">
+                <img src="/assets/galeria-ecobag-rhema.webp" alt="Ecobags personalizadas para evento com alça azul" loading="lazy">
+                <img src="/assets/galeria-ecobag-flores.webp" alt="Ecobag com estampa artística de flores" loading="lazy">
+                <img src="/assets/galeria-ecobag-ps-praiana.webp" alt="Sacolas personalizadas PS Praiana em grande quantidade" loading="lazy">
+                <img src="/assets/galeria-saquinhos-fininim.webp" alt="Saquinhos de algodão personalizados Fininim" loading="lazy">
+                <img src="/assets/galeria-ecobag-congresso.webp" alt="Ecobag personalizada para congresso" loading="lazy">
+                <img src="/assets/galeria-evento-curitiba-cult.webp" alt="Ecobags personalizadas em evento" loading="lazy">
+                <img src="/assets/galeria-ecobag-ivana-linz.webp" alt="Sacola de algodão personalizada Ivana Linz" loading="lazy">
+                <img src="/assets/galeria-saquinhos-algodao.webp" alt="Saquinhos de algodão com frase personalizada" loading="lazy">
+                <!-- duplicados para loop contínuo -->
+                <img src="/assets/galeria-ecobag-curitiba-cult.webp" alt="" aria-hidden="true" loading="lazy">
+                <img src="/assets/galeria-ecobag-garimpa.webp" alt="" aria-hidden="true" loading="lazy">
+                <img src="/assets/galeria-ecobag-leao.webp" alt="" aria-hidden="true" loading="lazy">
+                <img src="/assets/galeria-sacola-nina-colori.webp" alt="" aria-hidden="true" loading="lazy">
+                <img src="/assets/galeria-ecobag-rhema.webp" alt="" aria-hidden="true" loading="lazy">
+                <img src="/assets/galeria-ecobag-flores.webp" alt="" aria-hidden="true" loading="lazy">
+                <img src="/assets/galeria-ecobag-ps-praiana.webp" alt="" aria-hidden="true" loading="lazy">
+                <img src="/assets/galeria-saquinhos-fininim.webp" alt="" aria-hidden="true" loading="lazy">
+                <img src="/assets/galeria-ecobag-congresso.webp" alt="" aria-hidden="true" loading="lazy">
+                <img src="/assets/galeria-evento-curitiba-cult.webp" alt="" aria-hidden="true" loading="lazy">
+                <img src="/assets/galeria-ecobag-ivana-linz.webp" alt="" aria-hidden="true" loading="lazy">
+                <img src="/assets/galeria-saquinhos-algodao.webp" alt="" aria-hidden="true" loading="lazy">
+            </div>
         </div>
     </section>
 
