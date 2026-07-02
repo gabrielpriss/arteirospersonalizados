@@ -842,7 +842,7 @@
 
         /* Logo Wall — Carrossel contínuo */
         .clientes {
-            padding: 50px 0;
+            padding: 70px 0;
             background-color: var(--branco);
             border-top: 1px solid var(--verde-pale);
             border-bottom: 1px solid var(--verde-pale);
@@ -850,7 +850,7 @@
         }
         .clientes h3 {
             text-align: center;
-            margin-bottom: 40px;
+            margin-bottom: 48px;
             font-size: 13px;
             color: #888;
             letter-spacing: 0.15em;
@@ -859,27 +859,24 @@
         }
         .clientes-track-wrapper {
             overflow: hidden;
-            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
-            mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+            mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
         }
         .clientes-track {
             display: flex;
             align-items: center;
-            gap: 64px;
+            gap: 110px;
             width: max-content;
-            animation: logos-scroll 28s linear infinite;
-        }
-        .clientes-track:hover {
-            animation-play-state: paused;
+            animation: logos-scroll 45s linear infinite;
         }
         @keyframes logos-scroll {
             0%   { transform: translateX(0); }
             100% { transform: translateX(-50%); }
         }
         .clientes-track img {
-            height: 72px;
+            height: 100px;
             width: auto;
-            max-width: 160px;
+            max-width: 210px;
             object-fit: contain;
             flex-shrink: 0;
         }
@@ -911,9 +908,6 @@
             display: flex;
             width: max-content;
             animation: galeria-scroll 55s linear infinite;
-        }
-        .galeria-track:hover {
-            animation-play-state: paused;
         }
         @keyframes galeria-scroll {
             0%   { transform: translateX(0); }
@@ -1233,6 +1227,17 @@
             margin-bottom: 32px;
             opacity: 0.9;
         }
+        /* Formulário inline gamificado (mesmo padrão do popup) */
+        .wa-inline {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            background: #ECE5DD;
+            text-align: left;
+        }
+        .wa-inline .wa-body {
+            overflow: visible;
+        }
         .form-group-premium {
             margin-bottom: 24px;
         }
@@ -1459,6 +1464,326 @@
             margin-top: 8px;
         }
 
+        /* ===== Popup gamificado com identidade WhatsApp ===== */
+        .wa-box {
+            max-width: 448px;
+            background: #ECE5DD;
+        }
+        .wa-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 58px 16px 20px;
+            background: linear-gradient(135deg, #128C7E 0%, #075E54 100%);
+            flex-shrink: 0;
+        }
+        .wa-avatar {
+            position: relative;
+            width: 46px;
+            height: 46px;
+            border-radius: 50%;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            overflow: hidden;
+        }
+        .wa-avatar img {
+            width: 40px;
+            height: auto;
+        }
+        .wa-online-dot {
+            position: absolute;
+            bottom: 1px;
+            right: 1px;
+            width: 12px;
+            height: 12px;
+            background: #25D366;
+            border: 2px solid #075E54;
+            border-radius: 50%;
+        }
+        .wa-header-info {
+            flex: 1;
+            min-width: 0;
+        }
+        .wa-header-info h3 {
+            color: #fff;
+            font-family: var(--font-corpo);
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0;
+        }
+        .wa-status {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: rgba(255, 255, 255, 0.85);
+            font-family: var(--font-corpo);
+            font-size: 12px;
+            margin-top: 2px;
+        }
+        .wa-status i {
+            font-size: 7px;
+            color: #25D366;
+        }
+        .wa-header-icon {
+            color: rgba(255, 255, 255, 0.22);
+            font-size: 30px;
+        }
+        .wa-progress {
+            height: 4px;
+            background: rgba(0, 0, 0, 0.08);
+            flex-shrink: 0;
+        }
+        .wa-progress-bar {
+            height: 100%;
+            width: 25%;
+            background: #25D366;
+            transition: width 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .wa-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 22px 20px;
+            background-color: #ECE5DD;
+            background-image: radial-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+            background-size: 22px 22px;
+        }
+        .wa-step {
+            display: none;
+        }
+        .wa-step.active {
+            display: block;
+            animation: waFade 0.35s ease;
+        }
+        @keyframes waFade {
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: none; }
+        }
+        .wa-bubble {
+            max-width: 94%;
+            background: #fff;
+            color: #1a1a1a;
+            font-family: var(--font-corpo);
+            font-size: 15px;
+            line-height: 1.45;
+            padding: 12px 15px;
+            border-radius: 4px 14px 14px 14px;
+            box-shadow: 0 1px 1.5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 18px;
+        }
+        .wa-bubble strong {
+            color: #075E54;
+        }
+        .wa-min {
+            color: #888;
+            font-size: 13px;
+            font-weight: 400;
+        }
+        .wa-options {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+        }
+        .wa-option {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: #fff;
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 18px 10px;
+            cursor: pointer;
+            font-family: var(--font-corpo);
+            font-size: 14px;
+            font-weight: 600;
+            color: #1a1a1a;
+            text-align: center;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07);
+            transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+        }
+        .wa-option i {
+            font-size: 22px;
+            color: #128C7E;
+            transition: color 0.2s ease;
+        }
+        .wa-option:hover {
+            border-color: #25D366;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 14px rgba(18, 140, 126, 0.18);
+        }
+        .wa-option.selected {
+            background: #25D366;
+            border-color: #25D366;
+            color: #fff;
+        }
+        .wa-option.selected i {
+            color: #fff;
+        }
+        .wa-option-wide {
+            flex-direction: row;
+            grid-column: span 1;
+        }
+        .wa-resumo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-bottom: 18px;
+        }
+        .wa-resumo span {
+            background: rgba(18, 140, 126, 0.1);
+            border: 1px solid rgba(18, 140, 126, 0.28);
+            color: #075E54;
+            font-family: var(--font-corpo);
+            font-size: 12px;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 20px;
+        }
+        .wa-body .form-group-premium {
+            margin-bottom: 16px;
+        }
+        .wa-body .form-group-premium label {
+            color: #333;
+        }
+        .wa-body .form-group-premium label i {
+            color: #128C7E;
+        }
+        .wa-body .input-premium {
+            background: #fff;
+            border: 1px solid #d3d3d3;
+            color: #1a1a1a;
+        }
+        .wa-body .input-premium::placeholder {
+            color: #999;
+        }
+        .wa-body .input-premium:focus {
+            border-color: #25D366;
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.18);
+        }
+        .wa-submit {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 6px;
+            padding: 15px;
+            background: #25D366;
+            color: #fff;
+            border: none;
+            border-radius: 30px;
+            font-family: var(--font-corpo);
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(37, 211, 102, 0.35);
+            transition: background 0.25s ease, transform 0.2s ease;
+        }
+        .wa-submit i {
+            font-size: 20px;
+        }
+        .wa-submit:hover {
+            background: #20BA56;
+            transform: translateY(-1px);
+        }
+        .wa-submit:disabled {
+            opacity: 0.75;
+            cursor: default;
+            transform: none;
+        }
+        .wa-privacy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin: 12px 0 0;
+            color: #888;
+            font-family: var(--font-corpo);
+            font-size: 12px;
+        }
+        .wa-success {
+            text-align: center;
+            padding: 24px 0 12px;
+        }
+        .wa-success-icon {
+            font-size: 66px;
+            color: #25D366;
+            margin-bottom: 14px;
+            animation: waPop 0.45s ease;
+        }
+        @keyframes waPop {
+            0%   { transform: scale(0); }
+            70%  { transform: scale(1.15); }
+            100% { transform: scale(1); }
+        }
+        .wa-success h4 {
+            color: #075E54;
+            font-size: 22px;
+            margin: 0 0 8px;
+        }
+        .wa-success p {
+            color: #555;
+            font-family: var(--font-corpo);
+            font-size: 14px;
+            margin: 0;
+        }
+        .wa-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background: #f4efe9;
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            flex-shrink: 0;
+        }
+        .wa-back {
+            visibility: hidden;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 4px;
+            background: none;
+            border: none;
+            color: #128C7E;
+            font-family: var(--font-corpo);
+            font-size: 13px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .wa-back.visible {
+            visibility: visible;
+        }
+        .wa-step-label {
+            color: #999;
+            font-family: var(--font-corpo);
+            font-size: 12px;
+        }
+
+        /* Animações de entrada (revelar ao rolar) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(26px);
+            transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+                        transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+            will-change: opacity, transform;
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: none;
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important;
+                transition: none !important;
+            }
+        }
+
         /* Footer */
         footer {
             background-color: var(--verde-escuro);
@@ -1642,6 +1967,10 @@
                 order: 0;
                 padding: 48px 32px;
             }
+            .wa-inline {
+                width: 100%;
+                order: 0;
+            }
         }
         @media (max-width: 768px) {
             .titulo-produtos, .materiais-conteudo h2, .sobre-conteudo h2, .producao-conteudo h2, .depoimentos-premium h2, .galeria-trabalhos h2 { font-size: 28px; }
@@ -1667,6 +1996,13 @@
             }
             .clientes h3 {
                 margin-bottom: 24px;
+            }
+            .clientes-track {
+                gap: 64px;
+            }
+            .clientes-track img {
+                height: 68px;
+                max-width: 150px;
             }
             .grid-produtos {
                 grid-template-columns: 1fr;
@@ -1771,6 +2107,15 @@
                 top: 14px;
                 right: 14px;
             }
+            .wa-body {
+                padding: 18px 16px;
+            }
+            .wa-header {
+                padding: 14px 52px 14px 16px;
+            }
+            .wa-option {
+                padding: 15px 8px;
+            }
         }
     </style>
 </head>
@@ -1796,7 +2141,6 @@
                 <ul>
                     <li><a href="index.html">Início</a></li>
                     <li><a href="index.html#produtos">Ecobags</a></li>
-                    <li><a href="/camisetas/">Camisetas</a></li>
                     <li><a href="#sobre">Quem somos</a></li>
                 </ul>
             </nav>
@@ -1820,7 +2164,6 @@
             <ul>
                 <li><a href="index.html">Início</a></li>
                 <li><a href="index.html#produtos">Ecobags</a></li>
-                <li><a href="/camisetas/">Camisetas</a></li>
                 <li><a href="#sobre">Quem somos</a></li>
                 <li><a href="#materiais">Cores & Tecidos</a></li>
                 <li><a href="#galeria">Trabalhos</a></li>
@@ -1838,99 +2181,6 @@
                 <p>Sacolas Ecológicas, Saquinhos, Sacochilas e Nécessaires Personalizadas do seu jeito! Conte com a melhor qualidade, personalização exclusiva e o preço mais competitivo de Curitiba e região para marcar presença em todos os momentos.</p>
                 <a href="#orcamento" class="btn">Solicitar orçamento</a>
             </div>
-        </div>
-    </section>
-
-    <section class="produtos" id="produtos">
-        <div class="container">
-            <h2 class="titulo-produtos">Conheça nossa linha de produtos</h2>
-
-            <div class="grid-produtos">
-
-                <div class="card-produto-criativo">
-                    <div class="container-imagem">
-                        <img src="/assets/produto-ecobag.webp" alt="Ecobag">
-                        <div class="badge-criativo badge-sustentavel">SUSTENTÁVEL</div>
-                    </div>
-                    <div class="conteudo-card">
-                        <h3>Ecobag</h3>
-                        <p>Todos os produtos passam por um controle de qualidade rigoroso, proporcionando um acabamento final perfeito onde qualquer defeito é descartado.</p>
-                        <a href="#orcamento" class="btn btn-card">Solicitar orçamento</a>
-                    </div>
-                </div>
-
-                <div class="card-produto-criativo">
-                    <div class="container-imagem">
-                        <img src="/assets/produto-sacochila.webp" alt="Sacochila">
-                        <div class="badge-criativo badge-pratico">PRÁTICO</div>
-                    </div>
-                    <div class="conteudo-card">
-                        <h3>Sacochila</h3>
-                        <p>O processo de impressão é feito mantendo o padrão de qualidade e uniformidade, baixando os custos para os clientes e qualidade agregada.</p>
-                        <a href="#orcamento" class="btn btn-card">Solicitar orçamento</a>
-                    </div>
-                </div>
-
-                <div class="card-produto-criativo">
-                    <div class="container-imagem">
-                        <img src="/assets/produto-necessaire.webp" alt="Necessaire">
-                        <div class="badge-criativo badge-exclusivo">EXCLUSIVO</div>
-                    </div>
-                    <div class="conteudo-card">
-                        <h3>Necessaire</h3>
-                        <p>O processo de impressão é feito mantendo o padrão de qualidade e uniformidade, baixando os custos para os clientes e qualidade agregada.</p>
-                        <a href="#orcamento" class="btn btn-card">Solicitar orçamento</a>
-                    </div>
-                </div>
-
-                <div class="card-produto-criativo">
-                    <div class="container-imagem">
-                        <img src="/assets/produto-saquinhos.webp" alt="Saquinhos">
-                        <div class="badge-criativo badge-versatil">VERSÁTIL</div>
-                    </div>
-                    <div class="conteudo-card">
-                        <h3>Saquinhos</h3>
-                        <p>Todos os produtos passam por um controle de qualidade rigoroso, proporcionando um acabamento final perfeito onde qualquer defeito é descartado.</p>
-                        <a href="#orcamento" class="btn btn-card">Solicitar orçamento</a>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section class="materiais-premium" id="materiais">
-        <div class="container container-materiais">
-
-            <div class="materiais-conteudo">
-                <div class="badge-tag">Cores & Texturas</div>
-                <h2>Escolha entre diversas cores e tecidos</h2>
-                <p>Ecobags, sacochilas, nécessaires e saquinhos personalizados do jeitinho que você precisa! Trabalhamos com matéria-prima selecionada para garantir que a identidade da sua empresa seja estampada com máxima fidelidade e durabilidade.</p>
-
-                <div class="materiais-beneficios">
-                    <div class="beneficio-item">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <span>Algodão Cru e Tecidos Coloridos</span>
-                    </div>
-                    <div class="beneficio-item">
-                        <i class="fa-solid fa-circle-check"></i>
-                        <span>Tintas de Alta Fixação (Silk Screen)</span>
-                    </div>
-                </div>
-
-                <a href="#orcamento" class="btn btn-materiais">Solicitar orçamento</a>
-            </div>
-
-            <div class="materiais-wrapper-imagem">
-                <div class="moldura-imagem">
-                    <img src="/assets/cores-tecidos.webp" alt="Cores de tecidos disponíveis" class="img-materiais">
-                    <div class="badge-flutuante-cores">
-                        <i class="fa-solid fa-palette"></i>
-                        <span>Atendemos todas as cores!</span>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </section>
 
@@ -1967,6 +2217,73 @@
                 <img src="/assets/galeria-ecobag-ivana-linz.webp" alt="" aria-hidden="true" loading="lazy">
                 <img src="/assets/galeria-saquinhos-algodao.webp" alt="" aria-hidden="true" loading="lazy">
             </div>
+        </div>
+    </section>
+
+    <section class="clientes">
+        <div class="container">
+            <h3>Empresas já atendidas</h3>
+        </div>
+        <div class="clientes-track-wrapper">
+            <div class="clientes-track" aria-hidden="true">
+                <!-- Primeira metade: conjunto de logos repetido 2x para preencher telas largas -->
+                <img src="/assets/logo-ufpr.webp" alt="UFPR">
+                <img src="/assets/logo-pucpr.webp" alt="PUCPR">
+                <img src="/assets/logo-boticario.webp" alt="O Boticário">
+                <img src="/assets/logo-curitibacult.webp" alt="Curitiba Cult">
+                <img src="/assets/logo-bigben.webp" alt="Big Ben">
+                <img src="/assets/logo-rictv.webp" alt="RicTV">
+                <img src="/assets/logo-ufpr.webp" alt="">
+                <img src="/assets/logo-pucpr.webp" alt="">
+                <img src="/assets/logo-boticario.webp" alt="">
+                <img src="/assets/logo-curitibacult.webp" alt="">
+                <img src="/assets/logo-bigben.webp" alt="">
+                <img src="/assets/logo-rictv.webp" alt="">
+                <!-- Segunda metade idêntica para loop contínuo sem reset visível -->
+                <img src="/assets/logo-ufpr.webp" alt="">
+                <img src="/assets/logo-pucpr.webp" alt="">
+                <img src="/assets/logo-boticario.webp" alt="">
+                <img src="/assets/logo-curitibacult.webp" alt="">
+                <img src="/assets/logo-bigben.webp" alt="">
+                <img src="/assets/logo-rictv.webp" alt="">
+                <img src="/assets/logo-ufpr.webp" alt="">
+                <img src="/assets/logo-pucpr.webp" alt="">
+                <img src="/assets/logo-boticario.webp" alt="">
+                <img src="/assets/logo-curitibacult.webp" alt="">
+                <img src="/assets/logo-bigben.webp" alt="">
+                <img src="/assets/logo-rictv.webp" alt="">
+            </div>
+        </div>
+    </section>
+
+    <section class="sobre-premium" id="sobre">
+        <div class="container container-sobre">
+
+            <div class="sobre-conteudo">
+                <span class="sub-marca">Quem Somos</span>
+                <h2>Bem vindo(a) a<br><span class="nome-marca">Arteiros Personalizados</span></h2>
+
+                <p class="paragrafo-destaque">Somos uma confecção de Sacolas de Algodão produzidas de forma sustentável que buscam atender as necessidades de nossos clientes com o máximo de qualidade, com produtos que prolongam a exposição da marca e evitam o descarte precoce na natureza.</p>
+
+                <p>As Ecobags são desenvolvidas para quem valoriza sustentabilidade e estilo. Além disso, é um produto perfeito com custo baixo e faz com que sua marca seja destacada e saia na frente da concorrência.</p>
+
+                <div class="bloco-frase-efeito">
+                    <p>"Personalize do seu jeito e faça uma declaração tanto de moda quanto de compromisso ambiental."</p>
+                </div>
+
+                <a href="#orcamento" class="btn btn-sobre">Solicitar orçamento</a>
+            </div>
+
+            <div class="sobre-imagem-wrapper">
+                <div class="moldura-sobre">
+                    <img src="/assets/sobre-ecobag.webp" alt="Ecobag personalizada em Curitiba">
+                    <div class="selo-eco-flutuante">
+                        <i class="fa-solid fa-leaf"></i>
+                        <span>100% Sustentável</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -2153,60 +2470,6 @@
         </div>
     </section>
 
-    <section class="clientes">
-        <div class="container">
-            <h3>Empresas já atendidas</h3>
-        </div>
-        <div class="clientes-track-wrapper">
-            <div class="clientes-track" aria-hidden="true">
-                <img src="/assets/logo-ufpr.webp" alt="UFPR">
-                <img src="/assets/logo-pucpr.webp" alt="PUCPR">
-                <img src="/assets/logo-boticario.webp" alt="O Boticário">
-                <img src="/assets/logo-curitibacult.webp" alt="Curitiba Cult">
-                <img src="/assets/logo-bigben.webp" alt="Big Ben">
-                <img src="/assets/logo-rictv.webp" alt="RicTV">
-                <!-- duplicados para loop contínuo -->
-                <img src="/assets/logo-ufpr.webp" alt="">
-                <img src="/assets/logo-pucpr.webp" alt="">
-                <img src="/assets/logo-boticario.webp" alt="">
-                <img src="/assets/logo-curitibacult.webp" alt="">
-                <img src="/assets/logo-bigben.webp" alt="">
-                <img src="/assets/logo-rictv.webp" alt="">
-            </div>
-        </div>
-    </section>
-
-    <section class="sobre-premium" id="sobre">
-        <div class="container container-sobre">
-
-            <div class="sobre-conteudo">
-                <span class="sub-marca">Quem Somos</span>
-                <h2>Bem vindo(a) a<br><span class="nome-marca">Arteiros Personalizados</span></h2>
-
-                <p class="paragrafo-destaque">Somos uma confecção de Sacolas de Algodão produzidas de forma sustentável que buscam atender as necessidades de nossos clientes com o máximo de qualidade, com produtos que prolongam a exposição da marca e evitam o descarte precoce na natureza.</p>
-
-                <p>As Ecobags são desenvolvidas para quem valoriza sustentabilidade e estilo. Além disso, é um produto perfeito com custo baixo e faz com que sua marca seja destacada e saia na frente da concorrência.</p>
-
-                <div class="bloco-frase-efeito">
-                    <p>"Personalize do seu jeito e faça uma declaração tanto de moda quanto de compromisso ambiental."</p>
-                </div>
-
-                <a href="#orcamento" class="btn btn-sobre">Solicitar orçamento</a>
-            </div>
-
-            <div class="sobre-imagem-wrapper">
-                <div class="moldura-sobre">
-                    <img src="/assets/sobre-ecobag.webp" alt="Ecobag personalizada em Curitiba">
-                    <div class="selo-eco-flutuante">
-                        <i class="fa-solid fa-leaf"></i>
-                        <span>100% Sustentável</span>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </section>
-
     <section class="producao-premium" id="producao">
         <div class="container container-producao">
 
@@ -2260,75 +2523,180 @@
                 </iframe>
             </div>
 
-            <div class="form-wrapper-premium" id="leadForm">
-                <form action="#" method="get">
-                    <h3>Fale Conosco</h3>
-                    <p class="form-subtitle">Preencha os dados abaixo e receba um orçamento exclusivo em poucos minutos.</p>
-
-                    <div class="form-group-premium">
-                        <label for="nome"><i class="fa-regular fa-user"></i> Nome</label>
-                        <input type="text" id="nome" name="nome" class="input-premium" placeholder="Seu nome completo" required>
+            <div class="form-wrapper-premium wa-inline" id="leadShell">
+                <div class="wa-header">
+                    <div class="wa-avatar">
+                        <img src="/assets/logo.webp" alt="Arteiros Personalizados">
+                        <span class="wa-online-dot" aria-hidden="true"></span>
                     </div>
-
-                    <div class="form-group-premium">
-                        <label for="telefone"><i class="fa-brands fa-whatsapp"></i> Telefone (WhatsApp)</label>
-                        <input type="tel" id="telefone" name="telefone" class="input-premium" placeholder="(41) 99999-9999" required>
+                    <div class="wa-header-info">
+                        <h3>Fale Conosco</h3>
+                        <span class="wa-status"><i class="fa-solid fa-circle"></i> online agora · resposta rápida</span>
                     </div>
+                    <i class="fa-brands fa-whatsapp wa-header-icon" aria-hidden="true"></i>
+                </div>
 
-                    <div class="form-group-premium">
-                        <label class="label-seletor">Selecione o produto de seu interesse:</label>
-                        <div class="seletor-tags-group">
-                            <label class="tag-label">
-                                <input type="checkbox" name="produto" value="Ecobag">
-                                <span>Ecobag</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="checkbox" name="produto" value="Sacochila">
-                                <span>Sacochila</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="checkbox" name="produto" value="Necessaire">
-                                <span>Necessaire</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="checkbox" name="produto" value="Saquinhos">
-                                <span>Saquinhos</span>
-                            </label>
+                <div class="wa-progress" aria-hidden="true">
+                    <div class="wa-progress-bar"></div>
+                </div>
+
+                <div class="wa-body">
+                    <form action="#" method="get" id="leadForm">
+
+                        <div class="wa-step active" data-step="1">
+                            <div class="wa-bubble">Olá! Vamos montar seu orçamento em segundos. <strong>O que você procura?</strong></div>
+                            <div class="wa-options" data-field="produto">
+                                <button type="button" class="wa-option" data-value="Ecobag"><i class="fa-solid fa-bag-shopping"></i><span>Ecobag</span></button>
+                                <button type="button" class="wa-option" data-value="Sacochila"><i class="fa-solid fa-boxes-packing"></i><span>Sacochila</span></button>
+                                <button type="button" class="wa-option" data-value="Necessaire"><i class="fa-solid fa-suitcase-rolling"></i><span>Necessaire</span></button>
+                                <button type="button" class="wa-option" data-value="Saquinhos"><i class="fa-solid fa-gift"></i><span>Saquinhos</span></button>
+                            </div>
                         </div>
-                    </div>
 
-                    <div class="form-group-premium">
-                        <label class="label-seletor">Quantidade desejada:</label>
-                        <div class="seletor-tags-group">
-                            <label class="tag-label">
-                                <input type="radio" name="quantidade" value="50-100">
-                                <span>50 – 100 un.</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="radio" name="quantidade" value="100-200">
-                                <span>100 – 200 un.</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="radio" name="quantidade" value="200-500">
-                                <span>200 – 500 un.</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="radio" name="quantidade" value="500-1000">
-                                <span>500 – 1.000 un.</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="radio" name="quantidade" value="1000-2000">
-                                <span>1.000 – 2.000 un.</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="radio" name="quantidade" value="2000+">
-                                <span>2.000+ un.</span>
-                            </label>
+                        <div class="wa-step" data-step="2">
+                            <div class="wa-bubble">Boa escolha! E <strong>quantas unidades</strong> você precisa? <span class="wa-min">(pedido mínimo 50)</span></div>
+                            <div class="wa-options" data-field="quantidade">
+                                <button type="button" class="wa-option wa-option-wide" data-value="50 - 100"><span>50 – 100</span></button>
+                                <button type="button" class="wa-option wa-option-wide" data-value="100 - 200"><span>100 – 200</span></button>
+                                <button type="button" class="wa-option wa-option-wide" data-value="200 - 500"><span>200 – 500</span></button>
+                                <button type="button" class="wa-option wa-option-wide" data-value="500 - 1.000"><span>500 – 1.000</span></button>
+                                <button type="button" class="wa-option wa-option-wide" data-value="1.000 - 2.000"><span>1.000 – 2.000</span></button>
+                                <button type="button" class="wa-option wa-option-wide" data-value="Mais de 2.000"><span>2.000+</span></button>
+                            </div>
                         </div>
-                    </div>
 
-                    <button type="submit" class="btn btn-submit-premium">Solicitar orçamento grátis</button>
-                </form>
+                        <div class="wa-step" data-step="3">
+                            <div class="wa-bubble">Perfeito! E pra <strong>qual finalidade</strong> vão ser usadas?</div>
+                            <div class="wa-options" data-field="finalidade">
+                                <button type="button" class="wa-option" data-value="Empresa / Marca"><i class="fa-solid fa-briefcase"></i><span>Empresa / Marca</span></button>
+                                <button type="button" class="wa-option" data-value="Evento / Congresso"><i class="fa-solid fa-calendar-star"></i><span>Evento</span></button>
+                                <button type="button" class="wa-option" data-value="Brinde / Lembrancinha"><i class="fa-solid fa-heart"></i><span>Brinde</span></button>
+                                <button type="button" class="wa-option" data-value="Revenda"><i class="fa-solid fa-tags"></i><span>Revenda</span></button>
+                            </div>
+                        </div>
+
+                        <div class="wa-step" data-step="4">
+                            <div class="wa-bubble">Show! 🎉 Só falta pra onde enviamos seu <strong>orçamento personalizado</strong>:</div>
+                            <div class="wa-resumo"></div>
+                            <div class="form-group-premium">
+                                <label for="nome"><i class="fa-regular fa-user"></i> Nome</label>
+                                <input type="text" id="nome" name="nome" class="input-premium" placeholder="Seu nome completo" autocomplete="name">
+                            </div>
+                            <div class="form-group-premium">
+                                <label for="telefone"><i class="fa-brands fa-whatsapp"></i> Seu WhatsApp</label>
+                                <input type="tel" id="telefone" name="telefone" class="input-premium" placeholder="(41) 99999-9999" autocomplete="tel">
+                            </div>
+                            <button type="submit" class="wa-submit"><i class="fa-brands fa-whatsapp"></i> Receber meu orçamento</button>
+                            <p class="wa-privacy"><i class="fa-solid fa-lock"></i> Seus dados estão seguros. Sem spam.</p>
+                        </div>
+
+                        <div class="wa-step wa-success" data-step="5">
+                            <div class="wa-success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                            <h4>Recebemos seu pedido!</h4>
+                            <p>Estamos te levando ao WhatsApp para finalizar o atendimento...</p>
+                        </div>
+
+                    </form>
+                </div>
+
+                <div class="wa-nav">
+                    <button type="button" class="wa-back"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+                    <span class="wa-step-label">Etapa 1 de 4</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="produtos" id="produtos">
+        <div class="container">
+            <h2 class="titulo-produtos">Conheça nossa linha de produtos</h2>
+
+            <div class="grid-produtos">
+
+                <div class="card-produto-criativo">
+                    <div class="container-imagem">
+                        <img src="/assets/produto-ecobag.webp" alt="Ecobag">
+                        <div class="badge-criativo badge-sustentavel">SUSTENTÁVEL</div>
+                    </div>
+                    <div class="conteudo-card">
+                        <h3>Ecobag</h3>
+                        <p>Todos os produtos passam por um controle de qualidade rigoroso, proporcionando um acabamento final perfeito onde qualquer defeito é descartado.</p>
+                        <a href="#orcamento" class="btn btn-card">Solicitar orçamento</a>
+                    </div>
+                </div>
+
+                <div class="card-produto-criativo">
+                    <div class="container-imagem">
+                        <img src="/assets/produto-sacochila.webp" alt="Sacochila">
+                        <div class="badge-criativo badge-pratico">PRÁTICO</div>
+                    </div>
+                    <div class="conteudo-card">
+                        <h3>Sacochila</h3>
+                        <p>O processo de impressão é feito mantendo o padrão de qualidade e uniformidade, baixando os custos para os clientes e qualidade agregada.</p>
+                        <a href="#orcamento" class="btn btn-card">Solicitar orçamento</a>
+                    </div>
+                </div>
+
+                <div class="card-produto-criativo">
+                    <div class="container-imagem">
+                        <img src="/assets/produto-necessaire.webp" alt="Necessaire">
+                        <div class="badge-criativo badge-exclusivo">EXCLUSIVO</div>
+                    </div>
+                    <div class="conteudo-card">
+                        <h3>Necessaire</h3>
+                        <p>O processo de impressão é feito mantendo o padrão de qualidade e uniformidade, baixando os custos para os clientes e qualidade agregada.</p>
+                        <a href="#orcamento" class="btn btn-card">Solicitar orçamento</a>
+                    </div>
+                </div>
+
+                <div class="card-produto-criativo">
+                    <div class="container-imagem">
+                        <img src="/assets/produto-saquinhos.webp" alt="Saquinhos">
+                        <div class="badge-criativo badge-versatil">VERSÁTIL</div>
+                    </div>
+                    <div class="conteudo-card">
+                        <h3>Saquinhos</h3>
+                        <p>Todos os produtos passam por um controle de qualidade rigoroso, proporcionando um acabamento final perfeito onde qualquer defeito é descartado.</p>
+                        <a href="#orcamento" class="btn btn-card">Solicitar orçamento</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <section class="materiais-premium" id="materiais">
+        <div class="container container-materiais">
+
+            <div class="materiais-conteudo">
+                <div class="badge-tag">Cores & Texturas</div>
+                <h2>Escolha entre diversas cores e tecidos</h2>
+                <p>Ecobags, sacochilas, nécessaires e saquinhos personalizados do jeitinho que você precisa! Trabalhamos com matéria-prima selecionada para garantir que a identidade da sua empresa seja estampada com máxima fidelidade e durabilidade.</p>
+
+                <div class="materiais-beneficios">
+                    <div class="beneficio-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Algodão Cru e Tecidos Coloridos</span>
+                    </div>
+                    <div class="beneficio-item">
+                        <i class="fa-solid fa-circle-check"></i>
+                        <span>Tintas de Alta Fixação (Silk Screen)</span>
+                    </div>
+                </div>
+
+                <a href="#orcamento" class="btn btn-materiais">Solicitar orçamento</a>
+            </div>
+
+            <div class="materiais-wrapper-imagem">
+                <div class="moldura-imagem">
+                    <img src="/assets/cores-tecidos.webp" alt="Cores de tecidos disponíveis" class="img-materiais">
+                    <div class="badge-flutuante-cores">
+                        <i class="fa-solid fa-palette"></i>
+                        <span>Atendemos todas as cores!</span>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -2354,7 +2722,7 @@
                 <div>
                     <h4>Contato</h4>
                     <ul>
-                        <li><a href="https://wa.me/5541998175906" target="_blank"><i class="fa-brands fa-whatsapp"></i> +55 41 99817-5906</a></li>
+                        <li><a href="#orcamento" class="js-wa-open"><i class="fa-brands fa-whatsapp"></i> +55 41 99817-5906</a></li>
                         <li>
                             <a href="https://www.google.com/maps?cid=10930899849700201697&hl=pt-BR" target="_blank" rel="noopener noreferrer">
                                 <i class="fa-solid fa-location-dot"></i>
@@ -2371,100 +2739,99 @@
         </div>
     </footer>
 
-    <a href="https://wa.me/5541998175906?text=Oi!%20Eu%20vim%20atrav%C3%A9s%20do%20site%20e%20gostaria%20de%20um%20or%C3%A7amento%20da%20Arteiros%20Personalizados%20:)" 
-       class="whatsapp-float" 
-       target="_blank" 
-       rel="noopener noreferrer"
+    <a href="#orcamento"
+       class="whatsapp-float js-wa-open"
        aria-label="Fale conosco no WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
     <div class="modal-overlay" id="modal-orcamento" role="dialog" aria-modal="true" aria-labelledby="modal-titulo">
-        <div class="modal-box">
+        <div class="modal-box wa-box">
             <button type="button" class="modal-close" id="fechar-modal" aria-label="Fechar"><i class="fa-solid fa-xmark"></i></button>
 
-            <div class="modal-header">
-                <div class="modal-header-top">
+            <div class="wa-header">
+                <div class="wa-avatar">
                     <img src="/assets/logo.webp" alt="Arteiros Personalizados">
-                    <div>
-                        <span class="modal-badge"><i class="fa-solid fa-bolt"></i> Orçamento rápido</span>
-                        <h3 id="modal-titulo">Solicite seu orçamento</h3>
-                        <p>Preencha em menos de 1 minuto e receba uma proposta personalizada.</p>
-                    </div>
+                    <span class="wa-online-dot" aria-hidden="true"></span>
                 </div>
+                <div class="wa-header-info">
+                    <h3 id="modal-titulo">Arteiros Personalizados</h3>
+                    <span class="wa-status"><i class="fa-solid fa-circle"></i> online agora · resposta rápida</span>
+                </div>
+                <i class="fa-brands fa-whatsapp wa-header-icon" aria-hidden="true"></i>
             </div>
 
-            <div class="modal-body">
-                <div class="modal-notice">
-                    <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                    Pedido mínimo de <strong>50 unidades</strong>
-                </div>
+            <div class="wa-progress" aria-hidden="true">
+                <div class="wa-progress-bar" id="wa-progress-bar"></div>
+            </div>
 
+            <div class="wa-body">
                 <form action="#" method="get" id="modal-form">
-                    <div class="form-group-premium">
-                        <label for="modal_nome"><i class="fa-regular fa-user"></i> Nome</label>
-                        <input type="text" id="modal_nome" name="modal_nome" class="input-premium" placeholder="Seu nome completo" required>
-                    </div>
 
-                    <div class="form-group-premium">
-                        <label for="modal_telefone"><i class="fa-brands fa-whatsapp"></i> Telefone (WhatsApp)</label>
-                        <input type="tel" id="modal_telefone" name="modal_telefone" class="input-premium" placeholder="(41) 99999-9999" required>
-                    </div>
-
-                    <div class="form-group-premium">
-                        <label class="label-seletor">Quantidade desejada:</label>
-                        <div class="seletor-tags-group">
-                            <label class="tag-label">
-                                <input type="radio" name="modal_qtd" value="50 - 100" required>
-                                <span>50 – 100</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="radio" name="modal_qtd" value="100 - 200">
-                                <span>100 – 200</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="radio" name="modal_qtd" value="200 - 500">
-                                <span>200 – 500</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="radio" name="modal_qtd" value="500 - 1.000">
-                                <span>500 – 1.000</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="radio" name="modal_qtd" value="1000 - 2.000">
-                                <span>1.000 – 2.000</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="radio" name="modal_qtd" value="Mais de 2.000">
-                                <span>2.000+</span>
-                            </label>
+                    <!-- Etapa 1: produto -->
+                    <div class="wa-step active" data-step="1">
+                        <div class="wa-bubble">Olá! Vamos montar seu orçamento em segundos. <strong>O que você procura?</strong></div>
+                        <div class="wa-options" data-field="produto">
+                            <button type="button" class="wa-option" data-value="Ecobag"><i class="fa-solid fa-bag-shopping"></i><span>Ecobag</span></button>
+                            <button type="button" class="wa-option" data-value="Sacochila"><i class="fa-solid fa-boxes-packing"></i><span>Sacochila</span></button>
+                            <button type="button" class="wa-option" data-value="Necessaire"><i class="fa-solid fa-suitcase-rolling"></i><span>Necessaire</span></button>
+                            <button type="button" class="wa-option" data-value="Saquinhos"><i class="fa-solid fa-gift"></i><span>Saquinhos</span></button>
                         </div>
                     </div>
 
-                    <div class="form-group-premium">
-                        <label class="label-seletor">Tipo de produto:</label>
-                        <div class="seletor-tags-group">
-                            <label class="tag-label">
-                                <input type="radio" name="modal_produto" value="Ecobag" required>
-                                <span>Ecobag</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="radio" name="modal_produto" value="Sacochila">
-                                <span>Sacochila</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="radio" name="modal_produto" value="Necessaire">
-                                <span>Necessaire</span>
-                            </label>
-                            <label class="tag-label">
-                                <input type="radio" name="modal_produto" value="Saquinhos">
-                                <span>Saquinhos</span>
-                            </label>
+                    <!-- Etapa 2: quantidade -->
+                    <div class="wa-step" data-step="2">
+                        <div class="wa-bubble">Boa escolha! E <strong>quantas unidades</strong> você precisa? <span class="wa-min">(pedido mínimo 50)</span></div>
+                        <div class="wa-options" data-field="quantidade">
+                            <button type="button" class="wa-option wa-option-wide" data-value="50 - 100"><span>50 – 100</span></button>
+                            <button type="button" class="wa-option wa-option-wide" data-value="100 - 200"><span>100 – 200</span></button>
+                            <button type="button" class="wa-option wa-option-wide" data-value="200 - 500"><span>200 – 500</span></button>
+                            <button type="button" class="wa-option wa-option-wide" data-value="500 - 1.000"><span>500 – 1.000</span></button>
+                            <button type="button" class="wa-option wa-option-wide" data-value="1.000 - 2.000"><span>1.000 – 2.000</span></button>
+                            <button type="button" class="wa-option wa-option-wide" data-value="Mais de 2.000"><span>2.000+</span></button>
                         </div>
                     </div>
 
-                    <button type="submit" class="btn btn-submit-premium">Solicitar orçamento grátis</button>
+                    <!-- Etapa 3: finalidade -->
+                    <div class="wa-step" data-step="3">
+                        <div class="wa-bubble">Perfeito! E pra <strong>qual finalidade</strong> vão ser usadas?</div>
+                        <div class="wa-options" data-field="finalidade">
+                            <button type="button" class="wa-option" data-value="Empresa / Marca"><i class="fa-solid fa-briefcase"></i><span>Empresa / Marca</span></button>
+                            <button type="button" class="wa-option" data-value="Evento / Congresso"><i class="fa-solid fa-calendar-star"></i><span>Evento</span></button>
+                            <button type="button" class="wa-option" data-value="Brinde / Lembrancinha"><i class="fa-solid fa-heart"></i><span>Brinde</span></button>
+                            <button type="button" class="wa-option" data-value="Revenda"><i class="fa-solid fa-tags"></i><span>Revenda</span></button>
+                        </div>
+                    </div>
+
+                    <!-- Etapa 4: dados -->
+                    <div class="wa-step" data-step="4">
+                        <div class="wa-bubble">Show! 🎉 Só falta pra onde enviamos seu <strong>orçamento personalizado</strong>:</div>
+                        <div class="wa-resumo" id="wa-resumo"></div>
+                        <div class="form-group-premium">
+                            <label for="modal_nome"><i class="fa-regular fa-user"></i> Nome</label>
+                            <input type="text" id="modal_nome" name="modal_nome" class="input-premium" placeholder="Seu nome completo" autocomplete="name">
+                        </div>
+                        <div class="form-group-premium">
+                            <label for="modal_telefone"><i class="fa-brands fa-whatsapp"></i> Seu WhatsApp</label>
+                            <input type="tel" id="modal_telefone" name="modal_telefone" class="input-premium" placeholder="(41) 99999-9999" autocomplete="tel">
+                        </div>
+                        <button type="submit" class="wa-submit"><i class="fa-brands fa-whatsapp"></i> Receber meu orçamento</button>
+                        <p class="wa-privacy"><i class="fa-solid fa-lock"></i> Seus dados estão seguros. Sem spam.</p>
+                    </div>
+
+                    <!-- Etapa 5: sucesso -->
+                    <div class="wa-step wa-success" data-step="5">
+                        <div class="wa-success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                        <h4>Recebemos seu pedido!</h4>
+                        <p>Estamos te levando ao WhatsApp para finalizar o atendimento...</p>
+                    </div>
+
                 </form>
+            </div>
+
+            <div class="wa-nav" id="wa-nav">
+                <button type="button" class="wa-back" id="wa-back"><i class="fa-solid fa-arrow-left"></i> Voltar</button>
+                <span class="wa-step-label" id="wa-step-label">Etapa 1 de 4</span>
             </div>
         </div>
     </div>
@@ -2579,85 +2946,171 @@
                 window.location.href = 'https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(message);
             }
 
-            function getCheckedValues(form, name) {
-                return Array.from(form.querySelectorAll('[name="' + name + '"]:checked'))
-                    .map(function (el) { return el.value; });
+            /* ===== Wizard gamificado reutilizável (popup + formulário inline) ===== */
+            function setupWizard(shell, origem, opts) {
+                opts = opts || {};
+                var form = shell.querySelector('form');
+                if (!form) return null;
+                var steps = form.querySelectorAll('.wa-step');
+                var TOTAL = 4; // etapas de pergunta (5 = tela de sucesso)
+                var current = 1;
+                var answers = { produto: '', quantidade: '', finalidade: '' };
+                var progressBar = shell.querySelector('.wa-progress-bar');
+                var backBtn = shell.querySelector('.wa-back');
+                var stepLabel = shell.querySelector('.wa-step-label');
+                var waNav = shell.querySelector('.wa-nav');
+                var resumoBox = form.querySelector('.wa-resumo');
+                var nomeInput = form.querySelector('.wa-step[data-step="4"] input[type="text"]');
+                var telInput = form.querySelector('.wa-step[data-step="4"] input[type="tel"]');
+                var submitLabel = '<i class="fa-brands fa-whatsapp"></i> Receber meu orçamento';
+
+                function showStep(n) {
+                    current = n;
+                    steps.forEach(function (s) {
+                        s.classList.toggle('active', Number(s.getAttribute('data-step')) === n);
+                    });
+                    if (progressBar) progressBar.style.width = (Math.min(n, TOTAL) / TOTAL * 100) + '%';
+                    if (backBtn) backBtn.classList.toggle('visible', n > 1 && n <= TOTAL);
+                    if (waNav) waNav.style.display = n <= TOTAL ? 'flex' : 'none';
+                    if (stepLabel) stepLabel.textContent = n <= TOTAL ? ('Etapa ' + n + ' de ' + TOTAL) : '';
+                    if (n === 4) {
+                        renderResumo();
+                        if (opts.focusOnData !== false) {
+                            setTimeout(function () { if (nomeInput) nomeInput.focus(); }, 380);
+                        }
+                    }
+                }
+
+                function renderResumo() {
+                    if (!resumoBox) return;
+                    var parts = [
+                        answers.produto,
+                        answers.quantidade ? (answers.quantidade + ' un.') : '',
+                        answers.finalidade
+                    ].filter(Boolean);
+                    resumoBox.innerHTML = parts.map(function (p) {
+                        return '<span>' + p + '</span>';
+                    }).join('');
+                }
+
+                // Seleção de opção → guarda resposta e avança automaticamente
+                form.querySelectorAll('.wa-options').forEach(function (group) {
+                    var field = group.getAttribute('data-field');
+                    group.querySelectorAll('.wa-option').forEach(function (opt) {
+                        opt.addEventListener('click', function () {
+                            group.querySelectorAll('.wa-option').forEach(function (o) { o.classList.remove('selected'); });
+                            opt.classList.add('selected');
+                            answers[field] = opt.getAttribute('data-value');
+                            setTimeout(function () {
+                                if (current < TOTAL) showStep(current + 1);
+                            }, 280);
+                        });
+                    });
+                });
+
+                if (backBtn) backBtn.addEventListener('click', function () {
+                    if (current > 1) showStep(current - 1);
+                });
+
+                form.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var nome = (nomeInput.value || '').trim();
+                    var telefone = (telInput.value || '').trim();
+                    if (!nome) { nomeInput.focus(); return; }
+                    if (!telefone) { telInput.focus(); return; }
+                    // Garante que as etapas de clique foram respondidas
+                    if (!answers.produto) { showStep(1); return; }
+                    if (!answers.quantidade) { showStep(2); return; }
+
+                    var produtosTxt = answers.produto || 'Não informado';
+                    var quantidadeTxt = answers.quantidade || 'Não informada';
+                    var finalidadeTxt = answers.finalidade || 'Não informada';
+                    var btn = form.querySelector('.wa-submit');
+                    if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Enviando...'; }
+
+                    // Parte técnica idêntica: evento de conversão + planilha (mesmo webhook)
+                    dlPush('envio_formulario', { form_origem: origem, quantidade: quantidadeTxt, produtos: produtosTxt });
+                    Promise.resolve(sendToSheet({
+                        nome: nome,
+                        telefone: telefone,
+                        produtos: produtosTxt,
+                        quantidade: quantidadeTxt,
+                        finalidade: finalidadeTxt,
+                        origem: origem,
+                        termo: tracking.termo,
+                        campanha: tracking.campanha
+                    })).finally(function () {
+                        showStep(5);
+                        setTimeout(function () {
+                            openWhatsApp([
+                                'Olá! Vim pelo site e gostaria de um orçamento.',
+                                '',
+                                'Nome: ' + nome,
+                                'Telefone: ' + telefone,
+                                'Produto: ' + produtosTxt,
+                                'Quantidade: ' + quantidadeTxt,
+                                'Finalidade: ' + finalidadeTxt
+                            ].join('\n'));
+                        }, 1200);
+                    });
+                });
+
+                function reset() {
+                    answers = { produto: '', quantidade: '', finalidade: '' };
+                    form.querySelectorAll('.wa-option.selected').forEach(function (o) { o.classList.remove('selected'); });
+                    if (nomeInput) nomeInput.value = '';
+                    if (telInput) telInput.value = '';
+                    var sb = form.querySelector('.wa-submit');
+                    if (sb) { sb.disabled = false; sb.innerHTML = submitLabel; }
+                    showStep(1);
+                }
+
+                showStep(1);
+                return { reset: reset, showStep: showStep };
             }
 
-            function getRadioValue(form, name) {
-                var el = form.querySelector('[name="' + name + '"]:checked');
-                return el ? el.value : '';
-            }
+            // Formulário inline (seção de contato) — origem preservada 'Ecobags - Formulário'
+            var inlineShell = document.getElementById('leadShell');
+            if (inlineShell) setupWizard(inlineShell, 'Ecobags - Formulário', { focusOnData: false });
 
-            function handleLeadForm(e) {
-                e.preventDefault();
-                var form = e.target;
-                var produtos = getCheckedValues(form, 'produto');
-                var quantidade = getRadioValue(form, 'quantidade');
-                var nome = (form.nome.value || '').trim();
-                var telefone = (form.telefone.value || '').trim();
-                var produtosTxt = produtos.length ? produtos.join(', ') : 'Não informado';
-                var quantidadeTxt = quantidade || 'Não informada';
-                var btn = form.querySelector('button[type="submit"]');
-                if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviando...'; }
+            // Popup gamificado (identidade WhatsApp) — origem preservada 'Ecobags - Modal'
+            var modal = document.getElementById('modal-orcamento');
+            var popupShell = modal ? modal.querySelector('.wa-box') : null;
+            var popupWizard = popupShell ? setupWizard(popupShell, 'Ecobags - Modal') : null;
 
-                dlPush('envio_formulario', { form_origem: 'Ecobags - Formulário', quantidade: quantidadeTxt, produtos: produtosTxt });
-                Promise.resolve(sendToSheet({
-                    nome: nome,
-                    telefone: telefone,
-                    produtos: produtosTxt,
-                    quantidade: quantidadeTxt,
-                    origem: 'Ecobags - Formulário',
-                    termo: tracking.termo,
-                    campanha: tracking.campanha
-                })).finally(function () {
-                    openWhatsApp([
-                        'Olá! Vim pelo site e gostaria de um orçamento.',
-                        '',
-                        'Nome: ' + nome,
-                        'Telefone: ' + telefone,
-                        'Produto(s): ' + produtosTxt,
-                        'Quantidade: ' + quantidadeTxt + ' un.'
-                    ].join('\n'));
+            if (modal) {
+                function openModal(fromWhatsApp, trigger) {
+                    if (popupWizard) popupWizard.reset();
+                    modal.classList.add('active');
+                    document.body.classList.add('modal-open');
+                    if (fromWhatsApp) {
+                        dlPush('clique_whatsapp', { local: (trigger && trigger.getAttribute('aria-label')) || 'WhatsApp' });
+                    }
+                }
+
+                function closeModal() {
+                    modal.classList.remove('active');
+                    document.body.classList.remove('modal-open');
+                }
+
+                document.querySelectorAll('a[href="#orcamento"], .js-wa-open').forEach(function (btn) {
+                    btn.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        openModal(btn.classList.contains('js-wa-open'), btn);
+                        if (document.body.classList.contains('menu-open')) {
+                            var mc = document.querySelector('.menu-close');
+                            if (mc) mc.click();
+                        }
+                    });
+                });
+
+                var closeModalBtn = document.getElementById('fechar-modal');
+                if (closeModalBtn) closeModalBtn.addEventListener('click', closeModal);
+                modal.addEventListener('click', function (e) { if (e.target === modal) closeModal(); });
+                document.addEventListener('keydown', function (e) {
+                    if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
                 });
             }
-
-            function handleModalForm(e) {
-                e.preventDefault();
-                var form = e.target;
-                var quantidade = getRadioValue(form, 'modal_qtd');
-                var produto = getRadioValue(form, 'modal_produto');
-                var nome = (form.modal_nome.value || '').trim();
-                var telefone = (form.modal_telefone.value || '').trim();
-                var btn = form.querySelector('button[type="submit"]');
-                if (btn) { btn.disabled = true; btn.innerHTML = '<i class="fa-solid fa-paper-plane"></i> Enviando...'; }
-
-                dlPush('envio_formulario', { form_origem: 'Ecobags - Modal', quantidade: quantidade, produtos: produto });
-                Promise.resolve(sendToSheet({
-                    nome: nome,
-                    telefone: telefone,
-                    produtos: produto,
-                    quantidade: quantidade,
-                    origem: 'Ecobags - Modal',
-                    termo: tracking.termo,
-                    campanha: tracking.campanha
-                })).finally(function () {
-                    openWhatsApp([
-                        'Olá! Vim pelo site e gostaria de um orçamento.',
-                        '',
-                        'Nome: ' + nome,
-                        'Telefone: ' + telefone,
-                        'Quantidade: ' + quantidade,
-                        'Produto: ' + produto
-                    ].join('\n'));
-                });
-            }
-
-            var leadForm = document.querySelector('#leadForm form');
-            var modalForm = document.getElementById('modal-form');
-
-            if (leadForm) leadForm.addEventListener('submit', handleLeadForm);
-            if (modalForm) modalForm.addEventListener('submit', handleModalForm);
         })();
 
         // SCRIPT: Header transparente → fixo e sólido no scroll
@@ -2824,42 +3277,55 @@
             buildDots();
             updateCarousel();
         })();
+        // (A lógica do popup de orçamento foi unificada no funil gamificado acima.)
 
-        // SCRIPT: Lógica do Pop-up (Modal) de Orçamento
+        // SCRIPT: Animações de entrada ao rolar (leves e coerentes)
         (function () {
-            var modal = document.getElementById('modal-orcamento');
-            var closeModalBtn = document.getElementById('fechar-modal');
-            var botoesOrcamento = document.querySelectorAll('a[href="#orcamento"]');
+            if (!('IntersectionObserver' in window)) return;
+            if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-            function openModal() {
-                modal.classList.add('active');
-                document.body.classList.add('modal-open');
-            }
+            var selectors = [
+                '.hero-content',
+                '.galeria-trabalhos .container',
+                '.sobre-conteudo', '.sobre-imagem-wrapper',
+                '.depoimentos-premium h2', '.google-rating-box', '.carrossel-depoimentos',
+                '.producao-imagem-wrapper', '.producao-conteudo',
+                '.mapa-wrapper', '.wa-inline',
+                '.titulo-produtos', '.card-produto-criativo',
+                '.clientes h3',
+                '.materiais-conteudo', '.materiais-wrapper-imagem'
+            ];
 
-            function closeModal() {
-                modal.classList.remove('active');
-                document.body.classList.remove('modal-open');
-            }
-
-            botoesOrcamento.forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    openModal();
-
-                    if (document.body.classList.contains('menu-open')) {
-                        document.querySelector('.menu-close').click();
-                    }
+            var seen = [];
+            selectors.forEach(function (sel) {
+                document.querySelectorAll(sel).forEach(function (el) {
+                    if (seen.indexOf(el) === -1) seen.push(el);
                 });
             });
 
-            closeModalBtn.addEventListener('click', closeModal);
-
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) closeModal();
+            // Escalonamento suave para grupos de cards
+            document.querySelectorAll('.grid-produtos .card-produto-criativo').forEach(function (el, i) {
+                el.style.transitionDelay = (i * 0.08) + 's';
             });
 
-            document.addEventListener('keydown', function(e) {
-                if (e.key === 'Escape' && modal.classList.contains('active')) closeModal();
+            var obs = new IntersectionObserver(function (entries) {
+                entries.forEach(function (en) {
+                    if (en.isIntersecting) {
+                        en.target.classList.add('visible');
+                        obs.unobserve(en.target);
+                    }
+                });
+            }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+            var vh = window.innerHeight || document.documentElement.clientHeight;
+            seen.forEach(function (el) {
+                el.classList.add('reveal');
+                // Elementos já visíveis no carregamento: revela sem esconder (evita flash)
+                if (el.getBoundingClientRect().top < vh * 0.92) {
+                    el.classList.add('visible');
+                } else {
+                    obs.observe(el);
+                }
             });
         })();
     </script>
